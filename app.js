@@ -22,7 +22,7 @@ var AmpBinServer = (function () {
     }
 
     AmpBinServer.prototype.getBin = function (id, response) {
-        console.log("Getting bin: " + id);
+        console.log("[" + new Date() + "] Getting bin: " + id);
         var remoteReadStream = this.bins.file("ampbins/" + id).createReadStream();
         var r = '';
         var data = remoteReadStream.on("data", function(chunk) {

@@ -16,6 +16,8 @@ var AmpBin = (function () {
     AmpBin.prototype.upload = function (data) {
         var id = this.guid();
         window.history.pushState('', '', "/" + id);
+        var staticLink = document.getElementById("static-link");
+        staticLink.innerHTML = "<a href='https://static.ampb.in/" + id + "' target='_BLANK'>static link</a>";
         var ref = this.storageRef.child('ampbins/' + id);
         ref.putString(data).then(function (snapshot) {
             console.log('Uploaded a raw string!');

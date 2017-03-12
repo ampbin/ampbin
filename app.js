@@ -1,34 +1,46 @@
-var http = require("http");
-var gcloud = require("google-cloud");
-var fs = require('fs');
+http = require('http');
+gcloud = require('google-cloud');
+fs = require('fs');
 
-var config = {
-    apiKey: "AIzaSyBYkQt6uTnx1WqCJRbFh-58u3IGF2OtEPc",
-    authDomain: "levilol-9594e.firebaseapp.com",
-    databaseURL: "https://levilol-9594e.firebaseio.com",
-    storageBucket: "levilol-9594e.appspot.com",
-    messagingSenderId: "331064834157"
+/**
+ * Config options for firebase
+ * @type {Object}
+ */
+config = {
+    apiKey: 'AIzaSyBYkQt6uTnx1WqCJRbFh-58u3IGF2OtEPc',
+    authDomain: 'levilol-9594e.firebaseapp.com',
+    databaseURL: 'https://levilol-9594e.firebaseio.com',
+    storageBucket: 'levilol-9594e.appspot.com',
+    messagingSenderId: '331064834157',
 };
 
-var gs = "gs://levilol-9594e.appspot.com/";
+/**
+ * bucket
+ * @type {String}
+ */
+gs = 'gs://levilol-9594e.appspot.com/';
 
-var AmpBinServer = (function () {
+AmpBinServer = (function() {
+    /**
+     * @param {config} config
+     * @param {gs} gs
+     */
     function AmpBinServer(config, gs) {
-        var gcs = gcloud.storage({
+        gcs = gcloud.storage({
           projectId: 'levilol-9594e',
-          keyFilename: 'creds.json'
+          keyFilename: 'creds.json',
         });
-        this.bins = gcs.bucket("levilol-9594e.appspot.com");
+        this.bins = gcs.bucket('levilol-9594e.appspot.com');
     }
 
-    AmpBinServer.prototype.getBin = function (id, response) {
-        console.log("[" + new Date() + "] Getting bin: " + id);
-        var remoteReadStream = this.bins.file("ampbins/" + id).createReadStream();
-        var r = '';
-        var data = remoteReadStream.on("data", function(chunk) {
+    AmpBinServer.prototype.getBin = function(id, response) {
+        console.log('[' + new Date() + '] Getting bin: ' + id);
+        remoteReadStream = this.bins.file('ampbins/' + id).createReadStream();
+        r = '';
+        data = remoteReadStream.on('data', function(chunk) {
             r += chunk;
         })
-        .on("end", function() {
+        .on('end', function() {
             response.write(r);
             response.end();
         });
@@ -36,12 +48,12 @@ var AmpBinServer = (function () {
     return AmpBinServer;
 }());
 
-var abs = new AmpBinServer(config, gs);
-var binData = '';
-http.createServer(function (request, response) {
-    response.writeHead(200, { 'Content-Type': 'text/html' });
-    var url = request.url.replace("/", "");
-    if(url != "favicon.ico") {
+abs = new AmpBinServer(config, gs);
+binData = '';
+http.createServer(function(request, response) {
+    response.writeHead(200, {'Content-Type': 'text/html'});
+    url = request.url.replace('/', '');
+    if(url != 'favicon.ico') {
         abs.getBin(url, response);
     }
 }).listen(8081);

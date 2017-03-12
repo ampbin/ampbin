@@ -22,6 +22,8 @@
   },
   "devDependencies": {
     "browserify": "^14.1.0",
+    "eslint": "^3.17.1",
+    "eslint-config-google": "^0.7.1",
     "gulp-browserify": "^0.5.1"
   }
 }

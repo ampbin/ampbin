@@ -10,6 +10,7 @@ li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { flo
 	background-color: #5cb85c;
 	color: #fff;
 	font-size:20px;
+	cursor: pointer;
 }
 #copy, #message {display:none;}
 #message {

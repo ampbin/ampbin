@@ -2,12 +2,6 @@
 <html lang="">
 <head>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-4196734168998355",
-    enable_page_level_ads: true
-  });
-</script>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="Share and test your AMP HTML.">
@@ -32,15 +26,15 @@
   <link rel="stylesheet" type="text/css" href="/assets/ampbin.css">
   <script src="/assets/ace.js"></script>
   <script src="https://cdn.jsdelivr.net/jotted/latest/jotted.min.js"></script>
-  <script>
-    Jotted.plugin('ampbin', function (jotted, options) {
-        jotted.on('change', function (params, callback) {
-            var copy = document.getElementById("copy");
+<script>
+    Jotted.plugin('ampbin', function(jotted, options) {
+        jotted.on('change', function(params, callback) {
+            var copy = document.getElementById('copy');
             copy.value = params.content;
             callback(null, params);
         });
     });
-  </script>
+</script>
 </head>
 <body>
 <script>

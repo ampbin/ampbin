@@ -1,0 +1,36 @@
+[debug] [2017-07-23T22:57:33.659Z] ----------------------------------------------------------------------
+[debug] [2017-07-23T22:57:33.661Z] Command:      /usr/local/Cellar/node/7.3.0/bin/node /usr/local/bin/firebase serve
+[debug] [2017-07-23T22:57:33.662Z] CLI Version:  3.9.1
+[debug] [2017-07-23T22:57:33.662Z] Platform:     darwin
+[debug] [2017-07-23T22:57:33.662Z] Node Version: v7.3.0
+[debug] [2017-07-23T22:57:33.663Z] Time:         Sun Jul 23 2017 18:57:33 GMT-0400 (EDT)
+[debug] [2017-07-23T22:57:33.663Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-07-23T22:57:33.679Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-07-23T22:57:33.679Z] > authorizing via signed-in user
+[debug] [2017-07-23T22:57:33.681Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-07-23T22:57:33.681Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/S8Ww3lMGXjuqaZv3Q4jL45gybCioOLLXrlZ2NZrcXHA',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Jul 23 2017 18:57:33 GMT-0400 (EDT)
+[debug] [2017-07-23T22:57:33.907Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-23T22:57:33.910Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/levilol-9594e  
+ Sun Jul 23 2017 18:57:33 GMT-0400 (EDT)
+[debug] [2017-07-23T22:57:34.810Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-23T22:57:34.812Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/levilol-9594e/tokens  
+ Sun Jul 23 2017 18:57:34 GMT-0400 (EDT)
+[debug] [2017-07-23T22:57:35.402Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/levidurfee/Projects/ampbin'...
+[info] 
+[debug] [2017-07-23T22:57:35.408Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/levilol-9594e  
+ Sun Jul 23 2017 18:57:35 GMT-0400 (EDT)
+[debug] [2017-07-23T22:57:35.797Z] <<< HTTP RESPONSE 200
+[debug] [2017-07-23T22:57:35.798Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/331064834157/clients/_:getWebAppConfig  
+ Sun Jul 23 2017 18:57:35 GMT-0400 (EDT)
+[debug] [2017-07-23T22:57:36.380Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+

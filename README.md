@@ -1,0 +1,3 @@
+# ampbin
+
+Learn AMP!

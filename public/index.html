@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>ampbin</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jotted/latest/jotted.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/ampbin.min.css">
 </head>
@@ -19,7 +20,7 @@
 
 <main class="container">
     <div class="row">
-        <div class="twelve columns" id="editor">
+        <div class="twelve columns jotted-theme-bin" id="editor">
 
         </div>
     </div>
@@ -34,26 +35,25 @@
 </footer>
 
 <!-- scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/htmlembedded/htmlembedded.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/htmlmixed/htmlmixed.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jotted/latest/jotted.min.js"></script>
 <script>
-  var editor = ace.edit("editor");
-  //editor.setTheme("ace/theme/twilight");
-  editor.getSession().setMode("ace/mode/html");
 
-	new Jotted(document.querySelector('#editor'), {
-		files: [
-			{
-				type: 'html',
-				url: '/start.html'
-			}
-		],
-		pane: 'html',
-		showBlank: true,
-		plugins: [
-			'ace'
-		]
-	});
+  new Jotted(document.querySelector('#editor'), {
+    files: [{
+      type: 'html',
+      url: '/start.html'
+    }],
+    pane: 'html',
+    plugins: [
+      'codemirror'
+    ]
+  });
+
 </script>
 </body>
 </html>

@@ -12,29 +12,36 @@ class Database {
   }
 }
 
-class Controller {
-  static addClickListener(elId, cb) {
-    let el = Controller.getById(elId);
-    el.onclick = cb;
-  }
-
-  static getById(elId) {
-    return document.getElementById(elId);
-  }
-}
-
 class Ampbin {
   
-  constructor(db) {
-    this.db = db;
+  constructor(database) {
+    this.database = database;
   }
 
   save() {
-    console.log('hi');
+    // TODO: find better way to do this
+    let $editors = jotted.$container.querySelectorAll('.jotted-editor');
+    let binText = $editors[0].textContent;
+
+    let obj = {
+      'bin': binText,
+      'timestamp': Date.now()
+    };
+
+    this.database.push(obj);
+  }
+
+  addSaveHandler(saveId = 'save') {
+    let saveEl = this.getById(saveId);
+    saveEl.onclick = () => this.save();
+  }
+
+  getById(elId) {
+    return document.getElementById(elId);
   }
 
 }
 
-let database = new Database('bins');
-let ampbin = new Ampbin(database);
-let save = Controller.addClickListener('save', ampbin.save);
+let db = new Database('bins');
+let ampbin = new Ampbin(db);
+ampbin.addSaveHandler();

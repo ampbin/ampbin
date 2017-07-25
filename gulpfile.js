@@ -1,25 +1,41 @@
 /* ampbin gulpfile */
 const gulp             = require('gulp');
+const del              = require('del');
 const sass             = require('gulp-sass');
 const babel            = require('gulp-babel');
 const concat           = require('gulp-concat');
 const minify           = require('gulp-minify');
 const csscomb          = require('gulp-csscomb');
+const webpack          = require('gulp-webpack');
 const cleancss         = require('gulp-clean-css');
 const sourcemaps       = require('gulp-sourcemaps');
 const autoprefixer     = require('gulp-autoprefixer');
+
 
 /* scripts */
 gulp.task('scripts:transpile', () => {
   return gulp.src('./src/js/*.js')
     .pipe(babel({presets: 'es2015'}))
     .pipe(concat('ampbin.js'))
-    .pipe(gulp.dest('./public/assets/js'))
+    .pipe(gulp.dest('./build/transpile'))
     ;
 });
 
-gulp.task('scripts:minify', ['scripts:transpile'], () => {
-  return gulp.src('./public/assets/js/ampbin.js')
+gulp.task('scripts:clean', () => {
+  return del(['./build/webpack/*.js', './public/assets/js/*.js']).then(paths => {
+    console.log('Deleted files and folders:\n', paths.join('\n'));
+  });
+});
+
+gulp.task('scripts:webpack', ['scripts:clean', 'scripts:transpile'], () => {
+  return gulp.src('./build/transpile/ampbin.js')
+    .pipe(webpack())
+    .pipe(gulp.dest('./build/webpack'))
+    ;
+});
+
+gulp.task('scripts:minify', ['scripts:clean', 'scripts:webpack', 'scripts:transpile'], () => {
+  return gulp.src('./build/webpack/*.js')
     .pipe(minify({
       ext: { min: '.min.js' }
     }))

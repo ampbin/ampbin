@@ -37,14 +37,19 @@
     </div>
 </footer>
 
+<textarea class="hidden" id="copy"></textarea>
+
 <!-- scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/codemirror.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/xml/xml.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/htmlembedded/htmlembedded.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/css/css.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.28.0/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"></script>
 <script src="https://cdn.jsdelivr.net/jotted/latest/jotted.min.js"></script>
 <script>
+  Jotted.plugin('ampbin', function(jotted, options) {
+      jotted.on('change', function(params, callback) {
+          var copy = document.getElementById('copy');
+          copy.value = params.content;
+          callback(null, params);
+      });
+  });
 
   var jotted = new Jotted(document.querySelector('#editor'), {
     files: [{
@@ -53,7 +58,8 @@
     }],
     pane: 'html',
     plugins: [
-      'codemirror'
+      'ace',
+      'ampbin'
     ]
   });
 

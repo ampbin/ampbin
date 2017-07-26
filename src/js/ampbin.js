@@ -69,9 +69,7 @@ class Ampbin {
    * Save the current bin
    */
   save() {
-    // TODO: find better way to do this
-    let $editors = jotted.$container.querySelectorAll('.jotted-editor');
-    let binText = $editors[0].textContent;
+    let binText = this.getById('copy').value;
 
     let obj = {
       'bin': binText,

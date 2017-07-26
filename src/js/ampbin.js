@@ -1,3 +1,17 @@
+var firebase = require('firebase/app');
+require('firebase/auth');
+require('firebase/database');
+
+var config = {
+  apiKey: "AIzaSyBYkQt6uTnx1WqCJRbFh-58u3IGF2OtEPc",
+  authDomain: "levilol-9594e.firebaseapp.com",
+  databaseURL: "https://levilol-9594e.firebaseio.com",
+  projectId: "levilol-9594e",
+  storageBucket: "levilol-9594e.appspot.com",
+  messagingSenderId: "331064834157"
+};
+firebase.initializeApp(config);
+
 class Database {
   constructor(ref) {
     this.db = firebase.database().ref(ref);

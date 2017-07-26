@@ -29,7 +29,11 @@ gulp.task('scripts:clean', () => {
 
 gulp.task('scripts:webpack', ['scripts:clean', 'scripts:transpile'], () => {
   return gulp.src('./build/transpile/ampbin.js')
-    .pipe(webpack())
+    .pipe(webpack({
+      output: {
+        filename: 'ampbin.js'
+      }
+    }))
     .pipe(gulp.dest('./build/webpack'))
     ;
 });

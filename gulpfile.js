@@ -13,22 +13,21 @@ const autoprefixer     = require('gulp-autoprefixer');
 
 
 /* scripts */
-gulp.task('scripts:transpile', () => {
-  return gulp.src('./src/js/*.js')
-    .pipe(babel({presets: 'es2015'}))
-    .pipe(concat('ampbin.js'))
-    .pipe(gulp.dest('./build/transpile'))
-    ;
-});
-
 gulp.task('scripts:clean', () => {
   return del(['./build/webpack/*.js', './public/assets/js/*.js']).then(paths => {
     console.log('Deleted files and folders:\n', paths.join('\n'));
   });
 });
 
+gulp.task('scripts:transpile', ['scripts:clean'], () => {
+  return gulp.src('./src/js/*.js')
+    .pipe(babel({presets: 'es2015'}))
+    .pipe(gulp.dest('./build/transpile'))
+    ;
+});
+
 gulp.task('scripts:webpack', ['scripts:clean', 'scripts:transpile'], () => {
-  return gulp.src('./build/transpile/ampbin.js')
+  return gulp.src('./build/transpile/*.js')
     .pipe(webpack({
       output: {
         filename: 'ampbin.js'
@@ -38,8 +37,8 @@ gulp.task('scripts:webpack', ['scripts:clean', 'scripts:transpile'], () => {
     ;
 });
 
-gulp.task('scripts:minify', ['scripts:clean', 'scripts:webpack', 'scripts:transpile'], () => {
-  return gulp.src('./build/webpack/*.js')
+gulp.task('scripts:minify', ['scripts:clean', 'scripts:transpile', 'scripts:webpack'], () => {
+  return gulp.src('./build/webpack/ampbin.js')
     .pipe(minify({
       ext: { min: '.min.js' }
     }))

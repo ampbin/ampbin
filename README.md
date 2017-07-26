@@ -36,3 +36,4 @@ Things I need to work on.
 
 * users (register/login/logout)
 * view all saved bins
+* add codemirror to webpack

@@ -1,7 +1,7 @@
 /**
  * Ampbin class
  *
- * Main class to handle everything.
+ * Controller
  */
 export class Ampbin {
   /**

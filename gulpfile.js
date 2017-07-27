@@ -3,6 +3,7 @@ const gulp             = require('gulp');
 const del              = require('del');
 const sass             = require('gulp-sass');
 const babel            = require('gulp-babel');
+const serve            = require('gulp-serve');
 const concat           = require('gulp-concat');
 const minify           = require('gulp-minify');
 const csscomb          = require('gulp-csscomb');
@@ -82,6 +83,10 @@ gulp.task('styles:minify', ['styles:compile'], () => {
     ;
 });
 
+/* SERVE */
+/* ----- */
+gulp.task('serve', serve('public'));
+
 /* WATCH */
 /* ----- */
 
@@ -96,7 +101,7 @@ gulp.task('styles:watch', () => {
 });
 
 /* Watch everything */
-gulp.task('watch', () => {
+gulp.task('watch', ['serve', 'scripts:minify', 'styles:minify'], () => {
   gulp.watch('./src/js/*.js', ['scripts:transpile', 'scripts:minify']);
   gulp.watch('./src/scss/*.scss', ['styles:compile', 'styles:minify']);
 });

@@ -12,13 +12,17 @@ const sourcemaps       = require('gulp-sourcemaps');
 const autoprefixer     = require('gulp-autoprefixer');
 
 
-/* scripts */
+/* SCRIPTS */
+/* ------- */
+
+/* Remove existing files */
 gulp.task('scripts:clean', () => {
   return del(['./build/webpack/*.js', './public/assets/js/*.js']).then(paths => {
     console.log('Deleted files and folders:\n', paths.join('\n'));
   });
 });
 
+/* Convert ES6 to ES5 */
 gulp.task('scripts:transpile', ['scripts:clean'], () => {
   return gulp.src('./src/js/*.js')
     .pipe(babel({presets: 'es2015'}))
@@ -26,6 +30,7 @@ gulp.task('scripts:transpile', ['scripts:clean'], () => {
     ;
 });
 
+/* Combine the files into one */
 gulp.task('scripts:webpack', ['scripts:clean', 'scripts:transpile'], () => {
   return gulp.src('./build/transpile/*.js')
     .pipe(webpack({
@@ -37,6 +42,7 @@ gulp.task('scripts:webpack', ['scripts:clean', 'scripts:transpile'], () => {
     ;
 });
 
+/* Minify the single JS file */
 gulp.task('scripts:minify', ['scripts:clean', 'scripts:transpile', 'scripts:webpack'], () => {
   return gulp.src('./build/webpack/ampbin.js')
     .pipe(minify({
@@ -46,7 +52,10 @@ gulp.task('scripts:minify', ['scripts:clean', 'scripts:transpile', 'scripts:webp
     ;
 });
 
-/* scss/css */
+/* STYLES */
+/* ------ */
+
+/* Compile the SCSS, make it pretty, and add vendor prefixes */
 gulp.task('styles:compile', () => {
   return gulp.src('./src/scss/*.scss')
     .pipe(sass()
@@ -62,6 +71,7 @@ gulp.task('styles:compile', () => {
     ;
 });
 
+/* Minify the stylesheet */
 gulp.task('styles:minify', ['styles:compile'], () => {
   return gulp.src('./public/assets/css/ampbin.css')
     .pipe(sourcemaps.init())
@@ -72,15 +82,20 @@ gulp.task('styles:minify', ['styles:compile'], () => {
     ;
 });
 
-/* watch */
+/* WATCH */
+/* ----- */
+
+/* Watch the scripts */
 gulp.task('scripts:watch', () => {
   gulp.watch('./src/js/*.js', ['scripts:transpile', 'scripts:minify']);
 });
 
+/* Watch the styles */
 gulp.task('styles:watch', () => {
   gulp.watch('./src/scss/*.scss', ['styles:compile', 'styles:minify']);
 });
 
+/* Watch everything */
 gulp.task('watch', () => {
   gulp.watch('./src/js/*.js', ['scripts:transpile', 'scripts:minify']);
   gulp.watch('./src/scss/*.scss', ['styles:compile', 'styles:minify']);

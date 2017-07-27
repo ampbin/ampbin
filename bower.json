@@ -15,7 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "skeleton": "dhg/Skeleton#^2.0.4",
-    "codemirror": "^5.27.4"
+    "skeleton": "dhg/Skeleton#^2.0.4"
   }
 }

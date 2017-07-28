@@ -43,6 +43,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"></script>
 <script src="https://cdn.jsdelivr.net/jotted/latest/jotted.min.js"></script>
 <script>
+  var copy = document.getElementById('copy');
 
   Jotted.plugin('ampbin', function(jotted, options) {
       jotted.on('change', function(params, callback) {

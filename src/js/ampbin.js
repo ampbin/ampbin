@@ -11,7 +11,13 @@ export class Ampbin {
    */
   constructor(database) {
     this.database = database;
-    this.save(true);
+
+    if(window.location.hash) {
+
+    } else {
+      this.save(true);
+    }
+
   }
 
   /**
@@ -27,6 +33,10 @@ export class Ampbin {
     };
 
     this.bin = this.database.push(obj);
+
+    window.history.replaceState(null, null, '#' + this.bin.getKey());
+
+    console.log('new bin created');
   }
 
   update() {

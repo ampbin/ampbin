@@ -9,31 +9,33 @@ export class Ampbin {
    * 
    * @param  {Database} database Dependency Injection of Database class
    */
-  constructor(database, editor) {
+  constructor(database, options) {
     this.database = database;
-    this.editor = editor;
 
     if(window.location.hash) {
-      this.load(window.location.hash.replace('#', ''));
-      // move loading of Jotted to here
+      let response = this.load(window.location.hash.replace('#', ''));
+
+      response.then((s) => {
+        options.files[0].content = s.val().bin;
+        this.loadBin(options);
+      });
+      
     } else {
-      // move loading of Jotted to here as well
+      options.files[0].url = '/start.html';
+      this.loadBin(options);
       this.save(true);
     }
+    
+  }
 
+  loadBin(options) {
+    let jotted = new Jotted(document.querySelector('#editor'), options);
   }
 
   load(entryId) {
-    console.log('loading: ' + entryId);
-    let self = this;
-    let binText;
-    let copy = this.getById('copy');
-    firebase.database().ref('/bins/' + entryId).once('value').then(function(snapshot) {
-      binText = snapshot.val().bin;
-      copy.value = binText;
-      console.log(copy, binText);
-      // create method that loads Jotted
-    });
+    let response = firebase.database().ref('/bins/' + entryId).once('value');
+
+    return response;
   }
 
   /**
@@ -53,8 +55,6 @@ export class Ampbin {
     this.bin = this.database.push(obj);
 
     window.history.replaceState(null, null, '#' + this.bin.getKey());
-
-    console.log('new bin created');
   }
 
   update() {

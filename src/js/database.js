@@ -34,4 +34,12 @@ export class Database {
   push(obj) {
     return this.db.push(obj);
   }
+
+  retrieveOnce(ref) {
+    return firebase.database().ref(ref).once('value');
+  }
+
+  getRef(ref) {
+    return firebase.database().ref(ref);
+  }
 }

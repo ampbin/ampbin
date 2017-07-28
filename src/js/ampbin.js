@@ -13,7 +13,9 @@ export class Ampbin {
     this.database = database;
 
     if(window.location.hash) {
-      let response = this.load(window.location.hash.replace('#', ''));
+      let id = window.location.hash.replace('#', '');
+      let response = this.database.retrieveOnce('/bins/' + id);
+      this.bin = this.database.getRef('/bins/' + id);
 
       response.then((s) => {
         options.files[0].content = s.val().bin;
@@ -30,12 +32,6 @@ export class Ampbin {
 
   loadBin(options) {
     let jotted = new Jotted(document.querySelector('#editor'), options);
-  }
-
-  load(entryId) {
-    let response = firebase.database().ref('/bins/' + entryId).once('value');
-
-    return response;
   }
 
   /**

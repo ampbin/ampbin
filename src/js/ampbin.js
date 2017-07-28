@@ -9,22 +9,60 @@ export class Ampbin {
    * 
    * @param  {Database} database Dependency Injection of Database class
    */
-  constructor(database) {
+  constructor(database, options) {
     this.database = database;
+
+    if(window.location.hash) {
+      let id = window.location.hash.replace('#', '');
+      let response = this.database.retrieveOnce('/bins/' + id);
+      this.bin = this.database.getRef('/bins/' + id);
+
+      response.then((s) => {
+        options.files[0].content = s.val().bin;
+        this.loadBin(options);
+      });
+      
+    } else {
+      options.files[0].url = '/start.html';
+      this.loadBin(options);
+      this.save(true);
+    }
+    
+  }
+
+  loadBin(options) {
+    let jotted = new Jotted(document.querySelector('#editor'), options);
   }
 
   /**
    * Save the current bin
+   *
+   * Not sure if this needs a paraemter, but leaving it for now.
    */
-  save() {
+  save(newBin = false) {
     let binText = this.getById('copy').value;
 
     let obj = {
       'bin': binText,
-      'timestamp': Date.now()
+      'timestamp': Date.now(),
+      'newbin': newBin
     };
 
-    this.database.push(obj);
+    this.bin = this.database.push(obj);
+
+    window.history.replaceState(null, null, '#' + this.bin.getKey());
+  }
+
+  update() {
+    let binText = this.getById('copy').value;
+
+    let obj = {
+      'bin': binText,
+      'timestamp': Date.now(),
+      'newbin': false
+    };
+
+    this.bin.update(obj);
   }
 
   /**
@@ -34,7 +72,7 @@ export class Ampbin {
    */
   addSaveHandler(saveId = 'save') {
     let saveEl = this.getById(saveId);
-    saveEl.onclick = () => this.save();
+    saveEl.onclick = () => this.update();
   }
 
   /**

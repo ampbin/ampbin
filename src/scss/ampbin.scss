@@ -1,15 +1,33 @@
 // Imports
 
 @import "../../bower_components/skeleton/css/normalize";
-@import "../../bower_components/skeleton/css/normalize";
+@import "../../bower_components/skeleton/css/skeleton";
 
 /*-------------------------------------------------------*/
-// Styles :)
+// Variables
+$spacing:10px;
 
-.right {text-align: right;}
+/*-------------------------------------------------------*/
+// Foundation
 
 .container { width:100%; max-width: 100%; }
-#editor { height:75vh; width:100%; }
+.top-bar { background: #1E88E5; }
 
+/*-------------------------------------------------------*/
+// Nitty Gritty :)
+h1 { font-size:1.2em; margin: $spacing; }
+h1 a { color:#F5F5F6; text-decoration: none; }
+button, .button { margin: $spacing; }
+footer { font-size:.8em; margin: $spacing; }
+.spacing { margin: $spacing; }
+
+/*-------------------------------------------------------*/
+// Editor :)
+
+#editor { height:75vh; width:100%; }
 li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { float:right; }
 .hidden { display: none; }
+
+/*-------------------------------------------------------*/
+// Helpers :)
+.align-right {text-align: right;}

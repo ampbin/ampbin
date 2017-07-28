@@ -32,6 +32,6 @@ export class Database {
    * @param  {Object} obj Object that contains data
    */
   push(obj) {
-    this.db.push(obj);
+    return this.db.push(obj);
   }
 }

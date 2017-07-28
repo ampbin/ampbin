@@ -11,20 +11,34 @@ export class Ampbin {
    */
   constructor(database) {
     this.database = database;
+    this.save(true);
   }
 
   /**
    * Save the current bin
    */
-  save() {
+  save(newBin = false) {
     let binText = this.getById('copy').value;
 
     let obj = {
       'bin': binText,
-      'timestamp': Date.now()
+      'timestamp': Date.now(),
+      'newbin': newBin
     };
 
-    this.database.push(obj);
+    this.bin = this.database.push(obj);
+  }
+
+  update() {
+    let binText = this.getById('copy').value;
+
+    let obj = {
+      'bin': binText,
+      'timestamp': Date.now(),
+      'newbin': false
+    };
+
+    this.bin.update(obj);
   }
 
   /**
@@ -34,7 +48,7 @@ export class Ampbin {
    */
   addSaveHandler(saveId = 'save') {
     let saveEl = this.getById(saveId);
-    saveEl.onclick = () => this.save();
+    saveEl.onclick = () => this.update();
   }
 
   /**

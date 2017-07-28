@@ -13,7 +13,7 @@ export class Ampbin {
     this.database = database;
 
     if(window.location.hash) {
-      this.load(window.location.hash);
+      this.load(window.location.hash.replace('#', ''));
     } else {
       this.save(true);
     }
@@ -22,6 +22,13 @@ export class Ampbin {
 
   load(entryId) {
     console.log('loading: ' + entryId);
+    let self = this;
+    let binText;
+    firebase.database().ref('/bins/' + entryId).once('value').then(function(snapshot) {
+      binText = snapshot.val().bin;
+      let copyEl = self.getById('load');
+      copyEl.value = binText;
+    });
   }
 
   /**

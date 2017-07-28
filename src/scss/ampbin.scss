@@ -6,18 +6,31 @@
 /*-------------------------------------------------------*/
 // Variables
 $spacing:10px;
+$primary-color: #1E88E5;
+$dark-blue: #0D47A1;
+$accent: #2196F3;
 
 /*-------------------------------------------------------*/
 // Foundation
 
 .container { width:100%; max-width: 100%; }
-.top-bar { background: #1E88E5; }
+.top-bar { background: $primary-color; }
+header { border-top:10px solid $dark-blue; }
 
 /*-------------------------------------------------------*/
 // Nitty Gritty :)
 h1 { font-size:1.2em; margin: $spacing; }
 h1 a { color:#F5F5F6; text-decoration: none; }
-button, .button { margin: $spacing; }
+
+button, .button { 
+  margin: $spacing; 
+  background: $primary-color; 
+  color:#f5f5f6; 
+  border-color: #fff; 
+  transition: background 0.5s ease; 
+}
+button:hover, .button:hover { background: $accent; color: #fefefe; border-color: #82B1FF; }
+
 footer { font-size:.8em; margin: $spacing; }
 .spacing { margin: $spacing; }
 
@@ -31,3 +44,6 @@ li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { flo
 /*-------------------------------------------------------*/
 // Helpers :)
 .align-right {text-align: right;}
+.box-shadow {
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);
+}

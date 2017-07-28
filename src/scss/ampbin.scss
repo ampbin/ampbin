@@ -4,10 +4,23 @@
 @import "../../bower_components/skeleton/css/skeleton";
 
 /*-------------------------------------------------------*/
-// Styles :)
+// Foundation
 
 .container { width:100%; max-width: 100%; }
-#editor { height:75vh; width:100%; }
+.top-bar { background: #1E88E5; }
 
+/*-------------------------------------------------------*/
+// Nitty Gritty :)
+h1 { font-size:1.2em; }
+h1 a { color:#F5F5F6; text-decoration: none; }
+
+/*-------------------------------------------------------*/
+// Editor :)
+
+#editor { height:75vh; width:100%; }
 li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { float:right; }
 .hidden { display: none; }
+
+/*-------------------------------------------------------*/
+// Helpers :)
+.align-right {text-align: right;}

@@ -26,6 +26,8 @@ export class Ampbin {
 
   /**
    * Save the current bin
+   *
+   * Not sure if this needs a paraemter, but leaving it for now.
    */
   save(newBin = false) {
     let binText = this.getById('copy').value;

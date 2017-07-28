@@ -13,11 +13,15 @@ export class Ampbin {
     this.database = database;
 
     if(window.location.hash) {
-
+      this.load(window.location.hash);
     } else {
       this.save(true);
     }
 
+  }
+
+  load(entryId) {
+    console.log('loading: ' + entryId);
   }
 
   /**

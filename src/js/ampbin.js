@@ -9,12 +9,15 @@ export class Ampbin {
    * 
    * @param  {Database} database Dependency Injection of Database class
    */
-  constructor(database) {
+  constructor(database, editor) {
     this.database = database;
+    this.editor = editor;
 
     if(window.location.hash) {
       this.load(window.location.hash.replace('#', ''));
+      // move loading of Jotted to here
     } else {
+      // move loading of Jotted to here as well
       this.save(true);
     }
 
@@ -24,10 +27,12 @@ export class Ampbin {
     console.log('loading: ' + entryId);
     let self = this;
     let binText;
+    let copy = this.getById('copy');
     firebase.database().ref('/bins/' + entryId).once('value').then(function(snapshot) {
       binText = snapshot.val().bin;
-      let copyEl = self.getById('load');
-      copyEl.value = binText;
+      copy.value = binText;
+      console.log(copy, binText);
+      // create method that loads Jotted
     });
   }
 

@@ -35,6 +35,8 @@ h1 a { color:$header-font-color; text-decoration: none; }
   transition:opacity 0.8s ease;
 }
 
+h1 a:hover { color: $header-font-color; }
+
 .show-status { opacity: 1; }
 
 button, .button { 

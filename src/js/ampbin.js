@@ -21,13 +21,11 @@ export class Ampbin {
         options.files[0].content = s.val().bin;
         this.loadBin(options);
       });
-      
     } else {
       options.files[0].url = '/start.html';
       this.loadBin(options);
       this.save(true);
     }
-    
   }
 
   loadBin(options) {

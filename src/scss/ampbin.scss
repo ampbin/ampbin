@@ -1,3 +1,4 @@
+/*-------------------------------------------------------*/
 // Imports
 
 @import "../../bower_components/skeleton/css/normalize";
@@ -5,6 +6,7 @@
 
 /*-------------------------------------------------------*/
 // Variables
+
 $spacing:10px;
 $primary-color: #1E88E5;
 $dark-blue: #0D47A1;
@@ -19,6 +21,7 @@ header { border-top:10px solid $dark-blue; }
 
 /*-------------------------------------------------------*/
 // Nitty Gritty :)
+
 h1 { font-size:1.2em; margin: $spacing; }
 h1 a { color:#F5F5F6; text-decoration: none; }
 
@@ -43,6 +46,7 @@ li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { flo
 
 /*-------------------------------------------------------*/
 // Helpers :)
+
 .align-right {text-align: right;}
 button:hover, .button:hover, .box-shadow {
   box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);

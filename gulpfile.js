@@ -14,7 +14,6 @@ const cleancss         = require('gulp-clean-css');
 const sourcemaps       = require('gulp-sourcemaps');
 const autoprefixer     = require('gulp-autoprefixer');
 
-
 /* SCRIPTS */
 /* ------- */
 

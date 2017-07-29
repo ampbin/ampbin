@@ -23,11 +23,11 @@ h1 { font-size:1.2em; margin: $spacing; }
 h1 a { color:#F5F5F6; text-decoration: none; }
 
 button, .button { 
-  margin: $spacing; 
-  background: $primary-color; 
-  color:#f5f5f6; 
-  border-color: #fff; 
-  transition: background 0.5s ease; 
+  margin: $spacing;
+  background: $primary-color;
+  color:#f5f5f6;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,0), 0 3px 3px -2px rgba(0,0,0,0), 0 1px 8px 0 rgba(0,0,0,0);
+  transition: background 0.5s ease, box-shadow 0.8s ease;
 }
 button:hover, .button:hover { background: $accent; color: #fefefe; border-color: #82B1FF; }
 

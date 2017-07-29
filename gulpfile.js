@@ -77,8 +77,8 @@ gulp.task('styles:minify', ['styles:compile'], () => {
   return gulp.src('./public/assets/css/ampbin.css')
     .pipe(sourcemaps.init())
     .pipe(cleancss())
-    .pipe(sourcemaps.write())
     .pipe(concat('ampbin.min.css'))
+    .pipe(sourcemaps.write('../maps'))
     .pipe(gulp.dest('./public/assets/css'))
     ;
 });

@@ -100,15 +100,15 @@ gulp.task('serve', serve('public'));
 /* INJECT */
 /* ------ */
 gulp.task('inject', ['scripts:minify', 'styles:minify'], function () {
-  var target = gulp.src('./src/index.html');
-  var sources = gulp.src([
-    './public/assets/css/*.min.css', 
-    './public/assets/js/*.min.js'], 
+  var sources = gulp.src(
+    ['./public/assets/css/*.min.css', './public/assets/js/*.min.js'],
     {read: false}
   );
 
-  return target.pipe(inject(sources, {ignorePath: 'public'}))
-    .pipe(gulp.dest('./public'));
+  return gulp.src('./src/index.html')
+    .pipe(inject(sources, {ignorePath: 'public'}))
+    .pipe(gulp.dest('./public'))
+    ;
 });
 
 /* WATCH */

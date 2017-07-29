@@ -34,7 +34,8 @@ button, .button {
   box-shadow: 0 3px 4px 0 rgba(0,0,0,0), 0 3px 3px -2px rgba(0,0,0,0), 0 1px 8px 0 rgba(0,0,0,0);
   transition: background 0.5s ease, box-shadow 0.8s ease;
 }
-button:hover, .button:hover { background: $accent; color: #fefefe; border-color: #82B1FF; }
+button:hover, .button:hover,
+button:active, .button:active { background: $accent; color: #fefefe; border-color: #82B1FF; }
 
 footer { font-size:.8em; margin: $spacing; }
 .spacing { margin: $spacing; }

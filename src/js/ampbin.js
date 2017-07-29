@@ -9,8 +9,9 @@ export class Ampbin {
    * 
    * @param  {Database} database Dependency Injection of Database class
    */
-  constructor(database, options) {
+  constructor(database, notifications, options) {
     this.database = database;
+    this.notifications = notifications;
 
     if(window.location.hash) {
       let id = window.location.hash.replace('#', '');
@@ -51,6 +52,9 @@ export class Ampbin {
     this.bin = this.database.push(obj);
 
     window.history.replaceState(null, null, '#' + this.bin.getKey());
+
+    this.notifications.show('Saved!');
+    this.saveEl.onclick = () => this.update(); // switch save handler to update
   }
 
   update() {
@@ -63,6 +67,8 @@ export class Ampbin {
     };
 
     this.bin.update(obj);
+
+    this.notifications.show('Updated!');
   }
 
   /**
@@ -71,12 +77,12 @@ export class Ampbin {
    * @param {String} saveId ID of the Save button
    */
   addSaveHandler(saveId = 'save') {
-    let saveEl = this.getById(saveId);
+    this.saveEl = this.getById(saveId);
     if(this.newbin) {
-      saveEl.onclick = () => this.save();
+      this.saveEl.onclick = () => this.save();
     } else {
-      saveEl.onclick = () => this.update();
-    }
+      this.saveEl.onclick = () => this.update();
+    }    
   }
 
   /**

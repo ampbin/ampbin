@@ -127,4 +127,5 @@ gulp.task('styles:watch', () => {
 gulp.task('watch', ['serve', 'scripts:minify', 'styles:minify', 'inject'], () => {
   gulp.watch('./src/js/*.js', ['scripts:transpile', 'scripts:minify', 'inject']);
   gulp.watch('./src/scss/*.scss', ['styles:compile', 'styles:minify', 'inject']);
+  gulp.watch('./src/index.html', ['inject']);
 });

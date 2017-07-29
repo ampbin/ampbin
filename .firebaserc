@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "levilol-9594e"
+    "default": "levilol-9594e",
+    "staging": "ampbin-staging"
   }
 }

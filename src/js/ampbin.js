@@ -21,10 +21,12 @@ export class Ampbin {
         options.files[0].content = s.val().bin;
         this.loadBin(options);
       });
+      this.newbin = false;
     } else {
       options.files[0].url = '/start.html';
       this.loadBin(options);
-      this.save(true);
+      this.newbin = true;
+      //this.save(true);
     }
   }
 
@@ -70,7 +72,11 @@ export class Ampbin {
    */
   addSaveHandler(saveId = 'save') {
     let saveEl = this.getById(saveId);
-    saveEl.onclick = () => this.update();
+    if(this.newbin) {
+      saveEl.onclick = () => this.save();
+    } else {
+      saveEl.onclick = () => this.update();
+    }
   }
 
   /**

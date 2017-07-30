@@ -26,23 +26,23 @@ Always welcome!
 
 ```json
 {
-    'bins': {
-        'one': {
-            'bin': 'data',
-            'timestamp': 71098232
+    "bins": {
+        "one": {
+            "bin": "data",
+            "timestamp": 71098232
         },
-        'two': {
-            'bin': 'different data',
-            'timestamp': 987387498273
+        "two": {
+            "bin": "different data",
+            "timestamp": 987387498273
         }
     },
-    'user_bins': {
-        'user_one': {
-            'bin_one': 'one',
-            'bin_two': 'forty',
+    "user_bins": {
+        "user_one": {
+            "bin_one": "one",
+            "bin_two": "forty"
         },
-        'user_two': {
-            'bin_one': 'two'
+        "user_two": {
+            "bin_one": "two"
         }
     }
 }

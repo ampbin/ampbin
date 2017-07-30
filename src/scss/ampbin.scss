@@ -22,8 +22,10 @@ $header-font-color: #f5f5f6;
 .six { width: 50%; }
 .header-hamburger { float:left; fill:$header-font-color; }
 .burger {
-  width: 50px;
+  width: 30px;
   display: inline;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 .border-top { border-top:10px solid $dark-blue; }
@@ -45,7 +47,7 @@ aside {
   color: rgba(0,0,0,0.87);
 
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-  transition: opacity .3s cubic-bezier(0.4,0.0,0.2,1);
+  transition: opacity .3s cubic-bezier(0.4,0.0,0.2,1), z-index .3s cubic-bezier(0.4,0.0,0.2,1);
 }
 .inside-aside {
   height:50px;
@@ -70,9 +72,18 @@ aside {
   margin:10px 0;
 }
 
-.hidden-aside { opacity: 0; z-index:-1;}
+.hidden-aside { 
+  opacity: 0; z-index:-1;
+  transition: opacity .3s cubic-bezier(0.4,0.0,0.2,1), z-index .3s cubic-bezier(0.4,0.0,0.2,1);
+}
 .aside-hamburger {
   float: right;
+}
+.aside--icon {
+  display: inline-block;
+  float:left;
+  width:20px;
+  margin-right:10px;
 }
 
 /*-------------------------------------------------------*/
@@ -105,6 +116,15 @@ button:focus, .button:focus { background: $accent; color: #fefefe; border-color:
 
 footer { font-size:.8em; margin: $spacing; }
 .spacing { margin: $spacing; }
+
+/* TODO: FIX */
+.bin--link::before {
+  content: " ";
+  background: url('/assets/images/cube.svg');
+  position: absolute;
+  width: 20px;
+  height:20px;
+}
 
 /*-------------------------------------------------------*/
 // Editor :)

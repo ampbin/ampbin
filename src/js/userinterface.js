@@ -1,7 +1,10 @@
 export class UserInterface {
 	constructor(m) {
     this.m = m;
+    this.asideSetup();  
+  }
 
+  asideSetup() {
     let self = this;
     this.aside = 0;
 

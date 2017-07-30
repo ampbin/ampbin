@@ -20,7 +20,7 @@
 <header class="container border-top">
     <div class="row">
         <div class="twelve columns top-bar box-shadow">
-            <img id="aside--open" class="burger header-hamburger" src="/assets/images/light-burger.svg" alt="Hamburger Icon">
+            <img id="aside--open" class="burger header-hamburger" src="/assets/images/white-burger.svg" alt="Hamburger Icon">
             <h1><a href="/">AMPbin</a></h1>
             <span class="status" id="status">Alerts</span>
         </div>
@@ -37,23 +37,29 @@
 
 <aside id="aside" class="hidden-aside">
     <header class="border-bottom inside-aside aside-block dark-gray gray-border-top">
-        AMPbin <img id="aside--close" class="burger aside-hamburger" src="/assets/images/hamburger.svg" alt="Hamburger Icon">
+        AMPbin <img id="aside--close" class="burger aside-hamburger" src="/assets/images/burnt-burger.svg" alt="Hamburger Icon">
     </header>
-    <div class="border-bottom inside-aside aside-block">
-        Login
-    </div>
-    <div class="border-bottom inside-aside aside-block">
-        Register
-    </div>
-    <div class="border-bottom recent-bins aside-block" id="recent-bins">
-        <p class="aside-heading">Recent Bins</p>
-        <ul>
-            <li><a href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
-            <li><a href="">-KqA03wBfglhTBPZDRo3</a></li>
-            <li><a href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
-            <li><a href="">-KqA03wBfglhTBPZDRo3</a></li>
-            <li><a href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
-        </ul>
+    <div id="aside--container"><!-- id for mithril to use -->
+        <div class="border-bottom inside-aside aside-block">
+            Login
+        </div>
+        <div class="border-bottom inside-aside aside-block">
+            Register
+        </div>
+        <div class="border-bottom recent-bins aside-block" id="recent-bins">
+            <img class="aside--icon" src="/assets/images/cube.svg">
+
+            <p class="aside-heading">
+                Recent Bins
+            </p>
+            <ul>
+                <li><a class="bin--link" href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
+                <li><a class="bin--link" href="">-KqA03wBfglhTBPZDRo3</a></li>
+                <li><a class="bin--link" href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
+                <li><a class="bin--link" href="">-KqA03wBfglhTBPZDRo3</a></li>
+                <li><a class="bin--link" href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
+            </ul>
+        </div>
     </div>
 </aside>
 

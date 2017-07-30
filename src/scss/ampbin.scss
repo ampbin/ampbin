@@ -18,14 +18,89 @@ $header-font-color: #f5f5f6;
 
 .container { width:100%; max-width: 100%; }
 .top-bar { background: $primary-color; }
-header { border-top:10px solid $dark-blue; }
 .container { padding:0; }
 .six { width: 50%; }
+.header-hamburger { float:left; fill:$header-font-color; }
+.burger {
+  width: 30px;
+  display: inline;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.border-top { border-top:10px solid $dark-blue; }
+.gray-border-top { border-top:10px solid #C0C0C0; }
+
+/*-------------------------------------------------------*/
+// Aside
+
+aside {
+  position: absolute;
+  top:0;
+  z-index: 10;
+  opacity: 1;
+
+  width: 256px;
+  height:100%;
+
+  background-color: white;
+  color: rgba(0,0,0,0.87);
+
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  transition: opacity .3s cubic-bezier(0.4,0.0,0.2,1), z-index .3s cubic-bezier(0.4,0.0,0.2,1);
+}
+.inside-aside {
+  height:50px;
+  line-height: 50px;
+}
+.aside-block {
+  padding:0 20px;
+}
+.aside-heading {
+  margin: 10px 0 0;
+}
+.border-bottom {
+  border-bottom: 1px solid #bbb;
+}
+
+.dark-gray {
+  background: $header-font-color;
+}
+
+.recent-bins ul {
+  list-style-type: none;
+  margin:10px 0;
+}
+
+.hidden-aside { 
+  opacity: 0; z-index:-1;
+  transition: opacity .3s cubic-bezier(0.4,0.0,0.2,1), z-index .3s cubic-bezier(0.4,0.0,0.2,1);
+}
+.aside-hamburger {
+  float: right;
+}
+
+/* Aside - Icons */
+.aside--icon {
+  display: inline-block;
+  float:left;
+  width:20px;
+  margin-right:10px;
+}
+.person {margin-top:14px;}
+.cube {margin-top:2px;}
+
+/* Aside - Blocks */
+.login-block, .register-block {
+  height: auto;
+}
+aside input { width: 100%; }
+.nav--link { cursor: pointer; }
 
 /*-------------------------------------------------------*/
 // Nitty Gritty :)
 
-h1 { font-size:1.2em; margin: $spacing; float:left; }
+h1 { font-size:1.2em; margin: $spacing; float:left; line-height: 30px; }
 h1 a { color:$header-font-color; text-decoration: none; }
 .status { 
   float:right;
@@ -52,13 +127,13 @@ button:focus, .button:focus { background: $accent; color: #fefefe; border-color:
 
 footer { font-size:.8em; margin: $spacing; }
 .spacing { margin: $spacing; }
+.help { text-decoration: none; color:#222;}
 
 /*-------------------------------------------------------*/
 // Editor :)
 
 #editor { height:75vh; width:100%; }
 li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { float:right; }
-.hidden { display: none; }
 
 /*-------------------------------------------------------*/
 // Helpers :)
@@ -67,3 +142,4 @@ li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { flo
 button:hover, .button:hover, .box-shadow {
   box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);
 }
+.hidden { display: none; }

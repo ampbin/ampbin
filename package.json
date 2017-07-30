@@ -36,6 +36,7 @@
     "firebase": "^4.1.5",
     "gulp-inject": "^4.2.0",
     "gulp-rev": "^8.0.0",
-    "gulp-serve": "^1.4.0"
+    "gulp-serve": "^1.4.0",
+    "mithril": "^1.1.3"
   }
 }

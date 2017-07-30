@@ -17,9 +17,10 @@
 </head>
 <body>
 
-<header class="container">
+<header class="container border-top">
     <div class="row">
         <div class="twelve columns top-bar box-shadow">
+            <img id="aside--open" class="burger header-hamburger" src="/assets/images/white-burger.svg" alt="Hamburger Icon">
             <h1><a href="/">AMPbin</a></h1>
             <span class="status" id="status">Alerts</span>
         </div>
@@ -34,6 +35,55 @@
     </div>
 </header>
 
+<aside id="aside" class="hidden-aside">
+    <header class="border-bottom inside-aside aside-block dark-gray gray-border-top">
+        AMPbin <img id="aside--close" class="burger aside-hamburger" src="/assets/images/burnt-burger.svg" alt="Hamburger Icon">
+    </header>
+    <div id="aside--container"><!-- id for mithril to use -->
+        <div class="border-bottom inside-aside aside-block login-block">
+            <img class="aside--icon person" src="/assets/images/person.svg">
+
+            <span class="nav--link" id="aside--login-nav">Login</span>
+
+            <div class="login--container hidden" id="login--container">
+                <input type="email" name="email" placeholder="email">
+                <input type="password" name="password" placeholder="password">
+                <button>Login</button>
+            </div><!-- /login- -container -->
+
+        </div><!-- /login-block -->
+        <div class="border-bottom inside-aside aside-block register-block">
+            <img class="aside--icon person" src="/assets/images/add-person.svg">
+
+            <span class="nav--link" id="aside--register-nav">Register</span>
+
+            <div class="register--container hidden" id="register--container">
+                <input type="email" name="email" placeholder="email">
+                <input type="password" name="password" placeholder="password">
+                <input type="password" name="password_confirm" placeholder="confirm password">
+                <button>Register</button>
+            </div><!-- /register- -container -->
+        </div><!-- /register-block -->
+        <div class="border-bottom recent-bins aside-block recent-bins-block" id="recent-bins">
+            <img class="aside--icon cube" src="/assets/images/cube.svg">
+            <p class="aside-heading">
+                Recent Bins
+            </p>
+            <ul>
+                <li><a class="bin--link" href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
+                <li><a class="bin--link" href="">-KqA03wBfglhTBPZDRo3</a></li>
+                <li><a class="bin--link" href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
+                <li><a class="bin--link" href="">-KqA03wBfglhTBPZDRo3</a></li>
+                <li><a class="bin--link" href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
+            </ul>
+        </div><!-- /recent-bins-block -->
+        <div class="border-bottom inside-aside aside-block help-block">
+            <img class="aside--icon person" src="/assets/images/help.svg">
+            <a class="help" href="https://github.com/levidurfee/ampbin/issues">Help</a>
+        </div><!-- /help-block -->
+    </div>
+</aside>
+
 <main class="container">
     <div class="row">
         <div class="twelve columns jotted-theme-bin" id="editor">
@@ -45,7 +95,7 @@
 <footer class="container">
     <div class="row spacing">
         <div class="twelve columns">
-            <a href="https://www.iubenda.com/privacy-policy/8186870/full-legal" target="_BLANK">Privacy Policy</a> | <a href="https://github.com/levidurfee/ampbin">Code on Github</a> written by <a href="https://levi.lol/">Levi</a>. 
+            <a href="https://www.iubenda.com/privacy-policy/8186870/full-legal" target="_BLANK">Privacy Policy</a> | <a href="https://github.com/levidurfee/ampbin">Code on Github</a> written by <a href="https://levi.lol/">Levi</a>.
         </div>
     </div>
 </footer>

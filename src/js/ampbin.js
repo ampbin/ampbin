@@ -12,11 +12,18 @@ export class Ampbin {
   constructor(database, notifications, options) {
     this.database = database;
     this.notifications = notifications;
+    this.openBin(options);
+  }
 
+  setDatabase(database) {
+    this.database = database;
+  }
+
+  openBin(options, location = 'bins') {
     if(window.location.hash) {
       let id = window.location.hash.replace('#', '');
-      let response = this.database.retrieveOnce('/bins/' + id);
-      this.bin = this.database.getRef('/bins/' + id);
+      let response = this.database.retrieveOnce('/' + location + '/' + id);
+      this.bin = this.database.getRef('/' + location + '/' + id);
 
       response.then((s) => {
         options.files[0].content = s.val().bin;
@@ -27,7 +34,6 @@ export class Ampbin {
       options.files[0].url = '/start.html';
       this.loadBin(options);
       this.newbin = true;
-      //this.save(true);
     }
   }
 

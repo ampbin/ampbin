@@ -18,6 +18,32 @@ $ yarn install
 
 After that you can run `gulp:watch` to compile any changes.
 
-# contributions
+## contributions
 
 Always welcome!
+
+## database structure
+
+```json
+{
+    "bins": {
+        "one": {
+            "bin": "data",
+            "timestamp": 71098232
+        },
+        "two": {
+            "bin": "different data",
+            "timestamp": 987387498273
+        }
+    },
+    "user_bins": {
+        "user_one": {
+            "bin_one": "one",
+            "bin_two": "forty"
+        },
+        "user_two": {
+            "bin_one": "two"
+        }
+    }
+}
+```

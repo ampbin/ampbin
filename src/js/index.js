@@ -1,3 +1,5 @@
+var m = require("mithril");
+
 import { Database } from './database';
 import { Notifications } from './notifications';
 import { Ampbin } from './ampbin';
@@ -15,6 +17,6 @@ let options = {
   ]
 };
 let notifications = new Notifications('status');
-let userinterface = new UserInterface();
+let userinterface = new UserInterface(m);
 let ampbin = new Ampbin(db, notifications, options);
 ampbin.addSaveHandler();

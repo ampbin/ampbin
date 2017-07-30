@@ -1,4 +1,4 @@
-var m = require("mithril");
+//var m = require("mithril");
 
 import { Database } from './database';
 import { Notifications } from './notifications';
@@ -17,6 +17,6 @@ let options = {
   ]
 };
 let notifications = new Notifications('status');
-let userinterface = new UserInterface(m);
+let userinterface = new UserInterface();
 let ampbin = new Ampbin(db, notifications, options);
 ampbin.addSaveHandler();

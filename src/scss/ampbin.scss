@@ -79,6 +79,8 @@ aside {
 .aside-hamburger {
   float: right;
 }
+
+/* Aside - Icons */
 .aside--icon {
   display: inline-block;
   float:left;
@@ -87,6 +89,13 @@ aside {
 }
 .person {margin-top:14px;}
 .cube {margin-top:2px;}
+
+/* Aside - Blocks */
+.login-block, .register-block {
+  height: auto;
+}
+aside input { width: 100%; }
+.nav--link { cursor: pointer; }
 
 /*-------------------------------------------------------*/
 // Nitty Gritty :)

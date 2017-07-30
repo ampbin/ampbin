@@ -40,15 +40,31 @@
         AMPbin <img id="aside--close" class="burger aside-hamburger" src="/assets/images/burnt-burger.svg" alt="Hamburger Icon">
     </header>
     <div id="aside--container"><!-- id for mithril to use -->
-        <div class="border-bottom inside-aside aside-block">
+        <div class="border-bottom inside-aside aside-block login-block">
             <img class="aside--icon person" src="/assets/images/person.svg">
-            Login
-        </div>
-        <div class="border-bottom inside-aside aside-block">
+
+            <span class="nav--link" id="aside--login-nav">Login</span>
+
+            <div class="login--container hidden" id="login--container">
+                <input type="email" name="email" placeholder="email">
+                <input type="password" name="password" placeholder="password">
+                <button>Login</button>
+            </div><!-- /login- -container -->
+
+        </div><!-- /login-block -->
+        <div class="border-bottom inside-aside aside-block register-block">
             <img class="aside--icon person" src="/assets/images/add-person.svg">
-            Register
-        </div>
-        <div class="border-bottom recent-bins aside-block" id="recent-bins">
+
+            <span class="nav--link" id="aside--register-nav">Register</span>
+
+            <div class="register--container hidden" id="register--container">
+                <input type="email" name="email" placeholder="email">
+                <input type="password" name="password" placeholder="password">
+                <input type="password" name="password_confirm" placeholder="confirm password">
+                <button>Register</button>
+            </div><!-- /register- -container -->
+        </div><!-- /register-block -->
+        <div class="border-bottom recent-bins aside-block recent-bins-block" id="recent-bins">
             <img class="aside--icon cube" src="/assets/images/cube.svg">
             <p class="aside-heading">
                 Recent Bins
@@ -60,11 +76,11 @@
                 <li><a class="bin--link" href="">-KqA03wBfglhTBPZDRo3</a></li>
                 <li><a class="bin--link" href="">-Kq5cQmMrPq3rmuBEg_7</a></li>
             </ul>
-        </div>
-        <div class="border-bottom inside-aside aside-block">
+        </div><!-- /recent-bins-block -->
+        <div class="border-bottom inside-aside aside-block help-block">
             <img class="aside--icon person" src="/assets/images/help.svg">
             <a class="help" href="https://github.com/levidurfee/ampbin/issues">Help</a>
-        </div>
+        </div><!-- /help-block -->
     </div>
 </aside>
 

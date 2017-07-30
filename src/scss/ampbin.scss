@@ -85,6 +85,8 @@ aside {
   width:20px;
   margin-right:10px;
 }
+.person {margin-top:14px;}
+.cube {margin-top:2px;}
 
 /*-------------------------------------------------------*/
 // Nitty Gritty :)
@@ -116,22 +118,13 @@ button:focus, .button:focus { background: $accent; color: #fefefe; border-color:
 
 footer { font-size:.8em; margin: $spacing; }
 .spacing { margin: $spacing; }
-
-/* TODO: FIX */
-.bin--link::before {
-  content: " ";
-  background: url('/assets/images/cube.svg');
-  position: absolute;
-  width: 20px;
-  height:20px;
-}
+.help { text-decoration: none; color:#222;}
 
 /*-------------------------------------------------------*/
 // Editor :)
 
 #editor { height:75vh; width:100%; }
 li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { float:right; }
-.hidden { display: none; }
 
 /*-------------------------------------------------------*/
 // Helpers :)
@@ -140,3 +133,4 @@ li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { flo
 button:hover, .button:hover, .box-shadow {
   box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);
 }
+.hidden { display: none; }

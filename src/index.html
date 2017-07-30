@@ -17,9 +17,10 @@
 </head>
 <body>
 
-<header class="container">
+<header class="container border-top">
     <div class="row">
         <div class="twelve columns top-bar box-shadow">
+            <img id="aside--open" class="burger header-hamburger" src="/assets/images/light-burger.svg" alt="Hamburger Icon">
             <h1><a href="/">AMPbin</a></h1>
             <span class="status" id="status">Alerts</span>
         </div>
@@ -34,9 +35,9 @@
     </div>
 </header>
 
-<aside>
-    <header class="border-bottom inside-aside aside-block dark-gray">
-        AMPbin
+<aside id="aside" class="hidden-aside">
+    <header class="border-bottom inside-aside aside-block dark-gray gray-border-top">
+        AMPbin <img id="aside--close" class="burger aside-hamburger" src="/assets/images/hamburger.svg" alt="Hamburger Icon">
     </header>
     <div class="border-bottom inside-aside aside-block">
         Login

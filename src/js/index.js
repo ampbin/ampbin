@@ -1,6 +1,6 @@
+import { Ampbin } from './ampbin';
 import { Database } from './database';
 import { Notifications } from './notifications';
-import { Ampbin } from './ampbin';
 import { UserInterface } from './userinterface';
 
 let options = {

@@ -109,6 +109,11 @@ aside li {
   margin-bottom:0;
 }
 
+aside a {
+  text-decoration: none;
+  color:$primary-color;
+}
+
 .bins-p {
   margin-top:12px;
 }

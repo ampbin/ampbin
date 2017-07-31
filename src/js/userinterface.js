@@ -8,17 +8,6 @@ export class UserInterface {
     this.registerSetup();
     this.logout();
     this.login();
-    this.binLinks();
-  }
-
-  binLinks() {
-    let binlinks = document.getElementsByClassName('binlink');
-    for(let i=0; i<binlinks.length; i++) {
-      binlinks[i].onclick = (e) => {
-        window.location.href = e.srcElement.href;
-        location.reload();
-      };
-    }
   }
 
   login() {

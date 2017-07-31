@@ -91,6 +91,39 @@ export class Ampbin {
     this.notifications.show('Updated!');
   }
 
+  binListener(uid) {
+    let db = this.database.getRef('/user_bins/' + uid);
+    let bins = this.getById('recent-bins-list');
+    let liEl, aEl, liText;
+    db.on('child_added', (data) => {
+      // class binlink
+      // data.val().bin_id
+      liText = document.createTextNode(data.val().bin_id);
+      
+      aEl = document.createElement('a');
+      aEl.className = 'binlink';
+      aEl.href = '/#' + data.val().bin_id;
+      aEl.appendChild(liText);
+
+      liEl = document.createElement('li');
+      liEl.appendChild(aEl);
+      
+      bins.appendChild(liEl);
+
+      this.binLinks();
+    });
+  }
+
+  binLinks() {
+    let binlinks = document.getElementsByClassName('binlink');
+    for(let i=0; i<binlinks.length; i++) {
+      binlinks[i].onclick = (e) => {
+        window.location.href = e.srcElement.href;
+        location.reload();
+      };
+    }
+  }
+
   /**
    * Listen for a click on the save button
    * 

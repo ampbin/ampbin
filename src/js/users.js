@@ -41,6 +41,7 @@ export class Users {
         self.toggle('not-logged-in', 'none');
         self.toggle('logged-in', 'block');
         self.ampbin.loggedIn = true;
+        self.ampbin.binListener(user.uid);
       }
     });
   }

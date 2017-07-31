@@ -10,7 +10,7 @@ export class Users {
       var errorCode = error.code;
       var errorMessage = error.message;
     });
-    console.log(response);
+    //console.log(response);
   }
 
   login(email, password) {
@@ -37,10 +37,10 @@ export class Users {
     let self = this;
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        console.log(user);
+        //console.log(user);
         self.toggle('not-logged-in', 'none');
         self.toggle('logged-in', 'block');
-        self.ampbin.loggedin = true;
+        self.ampbin.loggedIn = true;
       }
     });
   }

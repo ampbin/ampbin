@@ -98,6 +98,15 @@ aside {
 aside input { width: 100%; }
 .nav--link { cursor: pointer; }
 
+aside ul {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+aside li {
+  flex: 0 0 auto;
+}
+
 /*-------------------------------------------------------*/
 // Nitty Gritty :)
 

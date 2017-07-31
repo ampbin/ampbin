@@ -28,6 +28,8 @@ export class Users {
       //location.reload();
       self.toggle('logged-in', 'none');
       self.toggle('not-logged-in', 'block');
+      let bins = document.getElementById('recent-bins-list');
+      bins.innerHTML = '';
     }).catch(function(error) {
       // An error happened.
     });

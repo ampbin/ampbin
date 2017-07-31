@@ -1,4 +1,5 @@
 import { Ampbin } from './ampbin';
+import { Users } from './users';
 import { Database } from './database';
 import { Notifications } from './notifications';
 import { UserInterface } from './userinterface';
@@ -16,7 +17,8 @@ let options = {
 
 let db = new Database('bins');
 let notifications = new Notifications('status');
-let userinterface = new UserInterface();
 let ampbin = new Ampbin(db, notifications, options);
+let users = new Users(ampbin);
+let userinterface = new UserInterface(users);
 
 ampbin.addSaveHandler();

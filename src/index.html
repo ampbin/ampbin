@@ -40,30 +40,34 @@
         AMPbin <img id="aside--close" class="burger aside-hamburger" src="/assets/images/burnt-burger.svg" alt="Hamburger Icon">
     </header>
     <div id="aside--container"><!-- id for mithril to use -->
-        <div class="border-bottom inside-aside aside-block login-block">
+        <div class="border-bottom inside-aside aside-block login-block not-logged-in">
             <img class="aside--icon person" src="/assets/images/person.svg">
 
             <span class="nav--link" id="aside--login-nav">Login</span>
 
             <div class="login--container hidden" id="login--container">
-                <input type="email" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="password">
-                <button>Login</button>
+                <input type="email" name="email" placeholder="email" id="login__email">
+                <input type="password" name="password" placeholder="password" id="login__password">
+                <button id="login__button">Login</button>
             </div><!-- /login- -container -->
 
         </div><!-- /login-block -->
-        <div class="border-bottom inside-aside aside-block register-block">
+        <div class="border-bottom inside-aside aside-block register-block not-logged-in">
             <img class="aside--icon person" src="/assets/images/add-person.svg">
 
             <span class="nav--link" id="aside--register-nav">Register</span>
 
             <div class="register--container hidden" id="register--container">
-                <input type="email" name="email" placeholder="email">
-                <input type="password" name="password" placeholder="password">
-                <input type="password" name="password_confirm" placeholder="confirm password">
-                <button>Register</button>
+                <input type="email" name="email" placeholder="email" id="register__email">
+                <input type="password" name="password" placeholder="password" id="register__password">
+                <input type="password" name="password_confirm" placeholder="confirm password" id="register__password_confirm">
+                <button id="register__button">Register</button>
             </div><!-- /register- -container -->
         </div><!-- /register-block -->
+        <div class="border-bottom inside-aside aside-block logout-block logged-in hidden">
+            <img class="aside--icon person" src="/assets/images/signout.svg">
+            <span class="nav--link" id="aside--logout">Logout</span>
+        </div>
         <div class="border-bottom recent-bins aside-block recent-bins-block" id="recent-bins">
             <img class="aside--icon cube" src="/assets/images/cube.svg">
             <p class="aside-heading">

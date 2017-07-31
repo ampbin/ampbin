@@ -13,6 +13,7 @@ export class Ampbin {
     this.database = database;
     this.notifications = notifications;
     this.openBin(options);
+    this.loggedIn = false;
   }
 
   setDatabase(database) {
@@ -34,6 +35,7 @@ export class Ampbin {
       options.files[0].url = '/start.html';
       this.loadBin(options);
       this.newbin = true;
+      this.userId = '';
     }
   }
 
@@ -61,6 +63,15 @@ export class Ampbin {
 
     this.notifications.show('Saved!');
     this.saveEl.onclick = () => this.update(); // switch save handler to update
+
+    if(this.loggedIn) {
+      // save a reference in /users/{userid}/bins/
+      this.saveForUser();
+    }
+  }
+
+  saveForUser() {
+
   }
 
   update() {

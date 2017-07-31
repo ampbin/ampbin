@@ -65,13 +65,16 @@ export class Ampbin {
     this.saveEl.onclick = () => this.update(); // switch save handler to update
 
     if(this.loggedIn) {
-      // save a reference in /users/{userid}/bins/
-      this.saveForUser();
+      this.saveForUser(this.bin.getKey());
     }
   }
 
-  saveForUser() {
-
+  saveForUser(binKey) {
+    let uid = firebase.auth().currentUser.uid;
+    let db = this.database.getRef('/user_bins/' + uid);
+    db.push({
+      'bin_id': binKey
+    });
   }
 
   update() {

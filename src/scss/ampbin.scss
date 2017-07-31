@@ -105,6 +105,16 @@ aside ul {
 
 aside li {
   flex: 0 0 auto;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  margin-bottom:0;
+}
+
+.bins-p {
+  margin-top:12px;
+}
+
+.recent-bins .bins-ul {
+  margin-bottom:3px;
 }
 
 /*-------------------------------------------------------*/

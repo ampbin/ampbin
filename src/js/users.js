@@ -21,13 +21,16 @@ export class Users {
         console.log("Account linking success", user);
       }, function(error) {
         console.log("Account linking error", error);
+        self.showError('register-error', error);
       });
   }
 
   login(email, password) {
+    let self = this;
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
+      self.showError('login-error', error.message);
     });
   }
 
@@ -57,6 +60,15 @@ export class Users {
         self.ampbin.binListener(user.uid);
       }
     });
+  }
+
+  showError(elId, error) {
+    let erEl = document.getElementById(elId);
+    erEl.style.display = 'inline-block';
+    erEl.innerHTML = error;
+    setTimeout(() => {
+      erEl.style.display = 'none';
+    }, 3000);
   }
 
   toggle(className, display) {

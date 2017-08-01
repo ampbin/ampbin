@@ -27,9 +27,7 @@ $header-font-color: #f5f5f6;
   margin-top: 10px;
   margin-left: 10px;
 }
-
 .border-top { border-top:10px solid $dark-blue; }
-.gray-border-top { border-top:10px solid #C0C0C0; }
 
 /*-------------------------------------------------------*/
 // Aside
@@ -60,19 +58,10 @@ aside {
 .aside-heading {
   margin: 10px 0 0;
 }
-.border-bottom {
-  border-bottom: 1px solid #bbb;
-}
-
-.dark-gray {
-  background: $header-font-color;
-}
-
 .recent-bins ul {
   list-style-type: none;
   margin:10px 0;
 }
-
 .hidden-aside { 
   opacity: 0; z-index:-1;
   transition: opacity .3s cubic-bezier(0.4,0.0,0.2,1), z-index .3s cubic-bezier(0.4,0.0,0.2,1);
@@ -97,27 +86,24 @@ aside {
 }
 aside input { width: 100%; }
 .nav--link { cursor: pointer; }
-
 aside ul {
   display: flex;
   flex-direction: column-reverse;
 }
-
 aside li {
   flex: 0 0 auto;
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
   margin-bottom:0;
 }
-
 aside a {
   text-decoration: none;
   color:$primary-color;
 }
 
+/* Aside - Misc */
 .bins-p {
   margin-top:12px;
 }
-
 .recent-bins .bins-ul {
   margin-bottom:3px;
 }
@@ -168,3 +154,10 @@ button:hover, .button:hover, .box-shadow {
   box-shadow: 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12), 0 1px 8px 0 rgba(0,0,0,0.2);
 }
 .hidden { display: none; }
+.border-bottom {
+  border-bottom: 1px solid #bbb;
+}
+.dark-gray {
+  background: $header-font-color;
+}
+.gray-border-top { border-top:10px solid #C0C0C0; }

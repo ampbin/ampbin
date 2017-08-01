@@ -10,28 +10,24 @@ export class Users {
       var errorCode = error.code;
       var errorMessage = error.message;
     });
-    //console.log(response);
   }
 
   login(email, password) {
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-      // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      // ...
     });
   }
 
   logout() {
     let self = this;
     firebase.auth().signOut().then(function() {
-      //location.reload();
       self.toggle('logged-in', 'none');
       self.toggle('not-logged-in', 'block');
       let bins = document.getElementById('recent-bins-list');
       bins.innerHTML = '';
     }).catch(function(error) {
-      // An error happened.
+      console.error(error);
     });
   }
 
@@ -39,7 +35,6 @@ export class Users {
     let self = this;
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        //console.log(user);
         self.toggle('not-logged-in', 'none');
         self.toggle('logged-in', 'block');
         self.ampbin.loggedIn = true;

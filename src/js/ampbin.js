@@ -16,10 +16,19 @@ export class Ampbin {
     this.loggedIn = false;
   }
 
+  /**
+   * Set the database property
+   * @param {Database} database A reference to the Firebase Database
+   */
   setDatabase(database) {
     this.database = database;
   }
 
+  /**
+   * Retrieve a bin from the database
+   * @param  {Object} options
+   * @param  {String} location
+   */
   openBin(options, location = 'bins') {
     if(window.location.hash) {
       let id = window.location.hash.replace('#', '');
@@ -39,6 +48,10 @@ export class Ampbin {
     }
   }
 
+  /**
+   * Load a bin into the editor
+   * @param  {Object} options
+   */
   loadBin(options) {
     let jotted = new Jotted(document.querySelector('#editor'), options);
   }
@@ -69,6 +82,10 @@ export class Ampbin {
     }
   }
 
+  /**
+   * If user is logged in, save the ID for them to retrieve later
+   * @param  {String} binKey
+   */
   saveForUser(binKey) {
     let uid = firebase.auth().currentUser.uid;
     let db = this.database.getRef('/user_bins/' + uid);
@@ -77,6 +94,9 @@ export class Ampbin {
     });
   }
 
+  /**
+   * Update the bin
+   */
   update() {
     let binText = this.getById('copy').value;
 
@@ -91,13 +111,15 @@ export class Ampbin {
     this.notifications.show('Updated!');
   }
 
+  /**
+   * Listen for users' bins
+   * @param  {String} uid
+   */
   binListener(uid) {
     let db = this.database.getRef('/user_bins/' + uid);
     let bins = this.getById('recent-bins-list');
     let liEl, aEl, liText;
     db.on('child_added', (data) => {
-      // class binlink
-      // data.val().bin_id
       liText = document.createTextNode(data.val().bin_id);
       
       aEl = document.createElement('a');
@@ -114,6 +136,9 @@ export class Ampbin {
     });
   }
 
+  /**
+   * Create event listeners for the bin links
+   */
   binLinks() {
     let binlinks = document.getElementsByClassName('binlink');
     for(let i=0; i<binlinks.length; i++) {

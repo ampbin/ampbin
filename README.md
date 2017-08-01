@@ -38,11 +38,14 @@ Always welcome!
     },
     "user_bins": {
         "user_one": {
-            "bin_one": "one",
-            "bin_two": "forty"
+            "bins": {
+              "one": true,
+              "two": true
         },
         "user_two": {
-            "bin_one": "two"
+            "bins": {
+              "two": true
+            }
         }
     }
 }

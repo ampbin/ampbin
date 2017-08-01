@@ -88,10 +88,11 @@ export class Ampbin {
    */
   saveForUser(binKey) {
     let uid = firebase.auth().currentUser.uid;
-    let db = this.database.getRef('/user_bins/' + uid);
-    db.push({
-      'bin_id': binKey
-    });
+    let db = this.database.getRef('/user_bins/' + uid + '/bins');
+    console.log(binKey);
+    let setObj = {};
+    setObj[binKey] = true;
+    db.update(setObj);
   }
 
   /**

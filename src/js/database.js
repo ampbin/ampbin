@@ -35,10 +35,18 @@ export class Database {
     return this.db.push(obj);
   }
 
+  /**
+   * Get data from a database and don't listen
+   * @param  {String} ref Location of the database to retrieve
+   */
   retrieveOnce(ref) {
     return firebase.database().ref(ref).once('value');
   }
 
+  /**
+   * Get a database reference
+   * @param  {String} ref
+   */
   getRef(ref) {
     return firebase.database().ref(ref);
   }

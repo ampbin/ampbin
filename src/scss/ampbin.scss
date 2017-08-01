@@ -98,6 +98,30 @@ aside {
 aside input { width: 100%; }
 .nav--link { cursor: pointer; }
 
+aside ul {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+aside li {
+  flex: 0 0 auto;
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  margin-bottom:0;
+}
+
+aside a {
+  text-decoration: none;
+  color:$primary-color;
+}
+
+.bins-p {
+  margin-top:12px;
+}
+
+.recent-bins .bins-ul {
+  margin-bottom:3px;
+}
+
 /*-------------------------------------------------------*/
 // Nitty Gritty :)
 

@@ -28,6 +28,8 @@ export class Users {
       //location.reload();
       self.toggle('logged-in', 'none');
       self.toggle('not-logged-in', 'block');
+      let bins = document.getElementById('recent-bins-list');
+      bins.innerHTML = '';
     }).catch(function(error) {
       // An error happened.
     });
@@ -41,6 +43,7 @@ export class Users {
         self.toggle('not-logged-in', 'none');
         self.toggle('logged-in', 'block');
         self.ampbin.loggedIn = true;
+        self.ampbin.binListener(user.uid);
       }
     });
   }

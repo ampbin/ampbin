@@ -102,8 +102,11 @@
 
 <footer class="container">
     <div class="row spacing">
-        <div class="twelve columns">
+        <div class="ten columns">
             <a href="https://www.iubenda.com/privacy-policy/8186870/full-legal" target="_BLANK">Privacy Policy</a> | <a href="https://medium.com/ampbin" target="_BLANK">Blog</a> | <a href="https://github.com/levidurfee/ampbin">Code on Github</a> written by <a href="https://levi.lol/">Levi</a>.
+        </div>
+        <div class="two columns validation-status">
+            Validation <span id="validation-status"></span>
         </div>
     </div>
 </footer>
@@ -113,12 +116,26 @@
 <!-- scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js"></script>
 <script src="https://cdn.jsdelivr.net/jotted/latest/jotted.min.js"></script>
+<script src='https://cdn.ampproject.org/v0/validator.js'></script>
+
 <script>
+  var validationStatusEl = document.getElementById('validation-status');
+  var validationStatus = function(status) {
+    validationStatusEl.innerHTML = status;
+    if(status === 'FAIL') {
+        validationStatusEl.style.background = '#D50000';
+    } else {
+        validationStatusEl.style.background = '#33691E';
+    }
+  };
   var copy = document.getElementById('copy');
+  var results;
 
   Jotted.plugin('ampbin', function(jotted, options) {
       jotted.on('change', function(params, callback) {
           copy.value = params.content;
+          results = amp.validator.validateString(params.content);
+          validationStatus(results.status);
           callback(null, params);
       });
   });

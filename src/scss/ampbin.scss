@@ -143,7 +143,7 @@ footer { font-size:.8em; margin: $spacing; }
 /*-------------------------------------------------------*/
 // Editor :)
 
-#editor { height:75vh; width:100%; }
+#editor { height:70vh; width:100%; }
 li.jotted-nav-item.jotted-nav-item-result, .jotted-pane.jotted-pane-result { float:right; }
 
 /*-------------------------------------------------------*/
@@ -161,3 +161,14 @@ button:hover, .button:hover, .box-shadow {
   background: $header-font-color;
 }
 .gray-border-top { border-top:10px solid #C0C0C0; }
+
+.validation-status {
+  text-align: right;
+  border: 1px solid rgba(51,51,51,0.24);
+  width:100px;
+}
+.validation-status span {
+  display: inline-block;
+  padding:5px;
+  color:#fff;
+}

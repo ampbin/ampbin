@@ -2,14 +2,6 @@ export class Users {
   constructor(ampbin) {
     this.ampbin = ampbin;
     this.listen();
-    let response = firebase.auth().signInAnonymously().catch(function(error) {
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.error(errorCode);
-    });
-    response.then((data) => {
-      //console.log(data);
-    });
   }
 
   register(email, password) {
@@ -51,6 +43,7 @@ export class Users {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         let isAnonymous = user.isAnonymous;
+        //console.log('54', isAnonymous);
 
         if(isAnonymous === false) {
           self.toggle('not-logged-in', 'none');
@@ -58,6 +51,15 @@ export class Users {
         }
         self.ampbin.loggedIn = true;
         self.ampbin.binListener(user.uid);
+      } else {
+        let response = firebase.auth().signInAnonymously().catch(function(error) {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.error(errorCode);
+        });
+        response.then((data) => {
+          //console.log(data);
+        });
       }
     });
   }

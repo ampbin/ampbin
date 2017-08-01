@@ -117,15 +117,16 @@ export class Ampbin {
    * @param  {String} uid
    */
   binListener(uid) {
-    let db = this.database.getRef('/user_bins/' + uid);
+    let db = this.database.getRef('/user_bins/' + uid + '/bins');
     let bins = this.getById('recent-bins-list');
     let liEl, aEl, liText;
     db.on('child_added', (data) => {
-      liText = document.createTextNode(data.val().bin_id);
+      let binKey = data.key;
+      liText = document.createTextNode(binKey);
       
       aEl = document.createElement('a');
       aEl.className = 'binlink';
-      aEl.href = '/#' + data.val().bin_id;
+      aEl.href = '/#' + binKey;
       aEl.appendChild(liText);
 
       liEl = document.createElement('li');

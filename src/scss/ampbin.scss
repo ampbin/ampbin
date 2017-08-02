@@ -28,6 +28,7 @@ $header-font-color: #f5f5f6;
   margin-left: 10px;
 }
 .border-top { border-top:10px solid $dark-blue; }
+.nine { width: 74%; }
 
 /*-------------------------------------------------------*/
 // Aside
@@ -162,8 +163,9 @@ button:hover, .button:hover, .box-shadow {
 }
 .gray-border-top { border-top:10px solid #C0C0C0; }
 
-.validation-status {
+.three.columns.validation-status {
   text-align: right;
+  float:right;
   border: 1px solid rgba(51,51,51,0.24);
   width:100px;
 }
@@ -178,3 +180,5 @@ button:hover, .button:hover, .box-shadow {
   color:#D50000;
   display: inline-block;
 }
+
+footer { font-size:11px; }

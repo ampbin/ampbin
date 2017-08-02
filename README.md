@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/levidurfee/ampbin.png?label=ready&title=Ready)](https://waffle.io/levidurfee/ampbin?utm_source=badge)
 # ampbin
 
 Learn AMP using the [AMPb.in website](https://ampb.in).

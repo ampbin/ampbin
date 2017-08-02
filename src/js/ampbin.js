@@ -67,7 +67,8 @@ export class Ampbin {
     let obj = {
       'bin': binText,
       'timestamp': Date.now(),
-      'newbin': newBin
+      'newbin': newBin,
+      'uid': firebase.auth().currentUser.uid
     };
 
     this.bin = this.database.push(obj);
@@ -89,7 +90,7 @@ export class Ampbin {
   saveForUser(binKey) {
     let uid = firebase.auth().currentUser.uid;
     let db = this.database.getRef('/user_bins/' + uid + '/bins');
-    console.log(binKey);
+    //console.log(binKey);
     let setObj = {};
     setObj[binKey] = true;
     db.update(setObj);

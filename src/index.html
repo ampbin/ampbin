@@ -134,12 +134,14 @@
   var results;
 
   Jotted.plugin('ampbin', function(jotted, options) {
-      jotted.on('change', function(params, callback) {
-          copy.value = params.content;
-          results = amp.validator.validateString(params.content);
-          validationStatus(results.status);
-          callback(null, params);
-      });
+    jotted.on('change', function(params, callback) {
+      copy.value = params.content;
+      if(params.content.length > 0) {
+        results = amp.validator.validateString(params.content);
+        validationStatus(results.status);
+      }
+      callback(null, params);
+    });
   });
 </script>
 

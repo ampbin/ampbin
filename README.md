@@ -1,5 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/levidurfee/ampbin.png?label=ready&title=Ready)](https://waffle.io/levidurfee/ampbin?utm_source=badge)
-# ampbin
+[![Build Status](https://travis-ci.org/levidurfee/ampbin.svg?branch=master)](https://travis-ci.org/levidurfee/ampbin)
+
+# AMPbin
 
 Learn AMP using the [AMPb.in website](https://ampb.in).
 

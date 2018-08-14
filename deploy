@@ -1,4 +1,0 @@
-#!/bin/bash
-
-firebase use $1
-firebase deploy

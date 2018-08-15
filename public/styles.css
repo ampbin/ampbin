@@ -1,0 +1,55 @@
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+.CodeMirror, #editor, #preview {
+    width:50%;
+    float:left;
+    height:calc(100vh - 50px);
+}
+.CodeMirror, #preview {
+    box-sizing: border-box;
+    border:1px solid #424242;
+}
+header {
+    height:50px;
+    line-height: 50px;
+}
+.col {
+    flex: 50%;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+.status {
+    min-width: 50px;
+    text-align: center;
+}
+.save {
+    margin-right:10px;
+}
+.status, .save {
+    height:50px;
+    padding:0 10px;
+    display: inline-block;
+    float:right;
+}
+button.save {
+    border:0;
+    background: #0074D9;
+    color: hsla(208, 100%, 85%, 1.0);
+}
+button.save:hover {
+    color:#000;
+    background:#7FDBFF;
+    transition: background 1s;
+    cursor: pointer;
+}
+.pass {
+    background:green;
+    color:#fff;
+}
+.fail {
+    background:red;
+    color:#fff;
+}

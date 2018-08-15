@@ -135,14 +135,20 @@
       }
       // ...
     });
-    var savebutton = document.getElementById('savebutton');
 
     </script>
     <script>
+        var savebutton = document.getElementById('savebutton');
         const firestore = firebase.firestore();
         const settings = {/* your settings... */ timestampsInSnapshots: true};
         firestore.settings(settings);
         var db = firebase.firestore();
+
+        // Enable 'save' button after user is logged in
+        firebase.auth().onAuthStateChanged(function(user) {
+            savebutton.disabled = false;
+        });
+
         savebutton.onclick = function() {
             db.collection("bins").add({
                 user: userid,

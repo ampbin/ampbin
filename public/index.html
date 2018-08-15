@@ -7,6 +7,8 @@
     <meta name="description" content="Easily create, validated, and share your AMP HTML with this easy to use AMP HTML Editor.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/light.css" integrity="sha384-pcDR01P1wNxsYZiEYdROCAYhU2u8VHOctLrYRonRFtkf/TGEQFWt0rqFbPGWlyn4" crossorigin="anonymous">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-4eP+1rYQmuI3hxrmyE+GT/EIiNbF4R85ciN3jMpmIh+bU5Hz2IU7AdcVe+JS+AJz" crossorigin="anonymous">
     <title>AMPB.in</title>
     <link rel="preload" href="https://cdn.ampproject.org/v0.js" as="script">
     <link rel="preload" href="https://cdn.ampproject.org/v0/validator.js" as="script">
@@ -16,8 +18,8 @@
     <header class="row">
         <div class="col brand">Ampb.in</div>
         <div class="col status-container">
-            <span class="status pass" id="amp_status">PASS</span>
-            <button id="savebutton" class="save" disabled>SAVE</button>
+            <span id="amp_status" class="pass">pass</span>
+            <button id="savebutton" disabled><i class="fal fa-save"></i></button>
         </div>
     </header>
     <!-- textarea -->

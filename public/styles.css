@@ -19,40 +19,13 @@ header {
 .col {
     flex: 50%;
 }
-.save {
-    margin-right:10px;
-}
-.status {
-    min-width: 50px;
-    text-align: center;
-}
-.status, .save {
-    height:50px;
-    padding:0 10px;
-    display: inline-block;
-    float:right;
-}
-button.save {
+
+#savebutton {
+    background:#fff;
     border:0;
-    background: #0074D9;
-    color: hsla(208, 100%, 85%, 1.0);
-}
-button.save:hover {
-    color:#000;
-    background:#7FDBFF;
-    transition: background 1s;
     cursor: pointer;
-}
-button.save:disabled {
-    background: #ddd;
-}
-.pass {
-    background:green;
-    color:#fff;
-}
-.fail {
-    background:red;
-    color:#fff;
+    color:rgb(68, 68, 68);
+    font-size:20px;
 }
 
 /********************************************

@@ -19,13 +19,27 @@ header {
 .col {
     flex: 50%;
 }
-
+.brand {
+    margin-left:20px;
+}
 #savebutton {
     background:#fff;
     border:0;
     cursor: pointer;
     color:rgb(68, 68, 68);
     font-size:20px;
+}
+#amp_status {
+    float:right;
+    padding:0 10px;
+}
+.pass {
+    background:green;
+    color:#fff;
+}
+.fail {
+    background:red;
+    color:#fff;
 }
 
 /********************************************

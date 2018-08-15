@@ -19,6 +19,7 @@
         <div class="col brand toolbar">
             Ampb.in
             <button id="savebutton" disabled><i class="fal fa-save"></i></button>
+            <span id="savestatus"></span>
         </div>
         <div class="col status-container">
             <span id="amp_status" class="pass">pass</span>
@@ -162,6 +163,7 @@
             .then(function(docRef) {
                 console.log("Document written with ID: ", docRef.id);
                 updateHash(docRef.id);
+                updateSaveStatus();
             })
             .catch(function(error) {
                 console.error("Error adding document: ", error);
@@ -170,6 +172,17 @@
 
         function updateHash(hash) {
             window.location.hash = '#' + hash;
+        }
+
+        function updateSaveStatus() {
+            var savestatus = document.getElementById('savestatus');
+            savestatus.innerHTML = 'saved!';
+            setTimeout(function() {
+                savestatus.classList.add('active');
+            }, 200);
+            setTimeout(function() {
+                savestatus.classList.remove('active');
+            }, 2000);
         }
 
     </script>

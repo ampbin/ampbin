@@ -32,6 +32,13 @@ header {
 #savebutton:focus {
     outline:none;
 }
+#savestatus {
+    color:#fff;
+    transition:color .8s;
+}
+#savestatus.active {
+    color:#424242;
+}
 #amp_status {
     float:right;
     padding:0 10px;

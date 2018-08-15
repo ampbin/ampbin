@@ -45,6 +45,9 @@ button.save:hover {
     transition: background 1s;
     cursor: pointer;
 }
+button.save:disabled {
+    background: #ddd;
+}
 .pass {
     background:green;
     color:#fff;

@@ -7,6 +7,8 @@
     <meta name="description" content="Easily create, validated, and share your AMP HTML with this easy to use AMP HTML Editor.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.39.2/codemirror.min.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/light.css" integrity="sha384-pcDR01P1wNxsYZiEYdROCAYhU2u8VHOctLrYRonRFtkf/TGEQFWt0rqFbPGWlyn4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/fontawesome.css" integrity="sha384-4eP+1rYQmuI3hxrmyE+GT/EIiNbF4R85ciN3jMpmIh+bU5Hz2IU7AdcVe+JS+AJz" crossorigin="anonymous">
     <title>AMPB.in</title>
     <link rel="preload" href="https://cdn.ampproject.org/v0.js" as="script">
     <link rel="preload" href="https://cdn.ampproject.org/v0/validator.js" as="script">
@@ -14,10 +16,14 @@
 </head>
 <body>
     <header class="row">
-        <div class="col brand">Ampb.in</div>
+        <div class="col brand toolbar">
+            Ampb.in
+            <button id="newbin" class="fa-container"><i class="fal fa-file"></i></button>
+            <button id="savebutton" class="fa-container" disabled><i class="fal fa-save"></i></button>
+            <span id="savestatus"></span>
+        </div>
         <div class="col status-container">
-            <span class="status pass" id="amp_status">PASS</span>
-            <button id="savebutton" class="save" disabled>SAVE</button>
+            <span id="amp_status" class="pass">pass</span>
         </div>
     </header>
     <!-- textarea -->
@@ -158,6 +164,7 @@
             .then(function(docRef) {
                 console.log("Document written with ID: ", docRef.id);
                 updateHash(docRef.id);
+                updateSaveStatus();
             })
             .catch(function(error) {
                 console.error("Error adding document: ", error);
@@ -166,6 +173,17 @@
 
         function updateHash(hash) {
             window.location.hash = '#' + hash;
+        }
+
+        function updateSaveStatus() {
+            var savestatus = document.getElementById('savestatus');
+            savestatus.innerHTML = 'saved!';
+            setTimeout(function() {
+                savestatus.classList.add('active');
+            }, 200);
+            setTimeout(function() {
+                savestatus.classList.remove('active');
+            }, 2000);
         }
 
     </script>
@@ -193,6 +211,13 @@
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             });
+        }
+
+        var newbinbutton = document.getElementById('newbin');
+        newbin.onclick = function() {
+            updateHash('');
+            console.log(document.getElementById('editor').value);
+            editor.setValue(document.getElementById('editor').value);
         }
     </script>
 </body>

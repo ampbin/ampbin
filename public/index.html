@@ -18,7 +18,8 @@
     <header class="row">
         <div class="col brand toolbar">
             Ampb.in
-            <button id="savebutton" disabled><i class="fal fa-save"></i></button>
+            <button id="newbin" class="fa-container"><i class="fal fa-file"></i></button>
+            <button id="savebutton" class="fa-container" disabled><i class="fal fa-save"></i></button>
             <span id="savestatus"></span>
         </div>
         <div class="col status-container">
@@ -210,6 +211,13 @@
             }).catch(function(error) {
                 console.log("Error getting document:", error);
             });
+        }
+
+        var newbinbutton = document.getElementById('newbin');
+        newbin.onclick = function() {
+            updateHash('');
+            console.log(document.getElementById('editor').value);
+            editor.setValue(document.getElementById('editor').value);
         }
     </script>
 </body>

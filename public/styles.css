@@ -22,14 +22,14 @@ header {
 .brand {
     margin-left:20px;
 }
-#savebutton {
+.fa-container {
     background:#fff;
     border:0;
     cursor: pointer;
     color:rgb(68, 68, 68);
     font-size:20px;
 }
-#savebutton:focus {
+#savebutton:focus, #newbin:focus {
     outline:none;
 }
 #savestatus {

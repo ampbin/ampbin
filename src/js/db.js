@@ -1,6 +1,6 @@
 import {updateHash, updateSaveStatus} from './helpers';
 
-export function connect() {
+export function connect(firebase) {
     const firestore = firebase.firestore();
     const settings = {timestampsInSnapshots: true};
     firestore.settings(settings);

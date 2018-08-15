@@ -1,3 +1,9 @@
+import * as CodeMirror from 'codemirror'
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/mode/htmlmixed/htmlmixed';
+import 'codemirror/mode/css/css';
+import 'codemirror/mode/xml/xml';
+
 var delay, editor;
 var previewContainer = document.getElementById('previewcontainer');
 

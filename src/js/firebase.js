@@ -1,3 +1,7 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
+
 export function firebaseinit() {
     var config = {
       apiKey: "AIzaSyDcPfiVfjkRp8x9TKqvMup0XTYvAYvPGA8",

@@ -13,8 +13,8 @@ editor.on("change", function() {
 });
 
 var firebase = firebaseinit();
-var userid = login();
-var db = connect();
+var userid = login(firebase);
+var db = connect(firebase);
 
 var savebutton = document.getElementById('savebutton');
 firebase.auth().onAuthStateChanged(function(user) {
@@ -31,7 +31,6 @@ if(window.location.hash.length > 0) {
         getBin(db, window.location.hash, editor);
     });
 }
-
 
 var newbinbutton = document.getElementById('newbin');
 newbin.onclick = function() {

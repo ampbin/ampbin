@@ -146,7 +146,8 @@
         savebutton.onclick = function() {
             db.collection("bins").add({
                 user: userid,
-                amphtml: editor.getValue()
+                amphtml: editor.getValue(),
+                saved: new Date().getTime()
             })
             .then(function(docRef) {
                 console.log("Document written with ID: ", docRef.id);

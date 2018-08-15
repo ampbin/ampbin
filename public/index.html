@@ -136,7 +136,7 @@
       // ...
     });
     var savebutton = document.getElementById('savebutton');
-    
+
     </script>
     <script>
         const firestore = firebase.firestore();
@@ -156,23 +156,25 @@
                 console.error("Error adding document: ", error);
             });
         }
-        
+
         function updateHash(hash) {
             window.location.hash = '#' + hash;
         }
-        
+
     </script>
     <script>
         if(window.location.hash.length > 0) {
-            console.log("Loading bin.");
-            getBin(window.location.hash);
+            firebase.auth().onAuthStateChanged(function(user) {
+                console.log("Loading bin.");
+                getBin(window.location.hash);
+            });
         }
-        
+
         function getBin(bin) {
             bin = bin.replace("#", "");
             console.log("Getting bin " + bin);
             var docRef = db.collection("bins").doc(bin);
-            
+
             docRef.get().then(function(doc) {
                 if (doc.exists) {
                     //console.log("Document data:", doc.data());

@@ -29,6 +29,9 @@ header {
     color:rgb(68, 68, 68);
     font-size:20px;
 }
+#savebutton:focus {
+    outline:none;
+}
 #amp_status {
     float:right;
     padding:0 10px;

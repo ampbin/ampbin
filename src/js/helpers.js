@@ -2,7 +2,7 @@ export function updateHash(hash) {
     window.location.hash = '#' + hash;
 }
 
-export function updateSaveStatus(text) {
+export function updateActionStatus(text) {
     var savestatus = document.getElementById('savestatus');
     savestatus.innerHTML = text + '!';
     setTimeout(function() {

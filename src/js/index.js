@@ -3,7 +3,7 @@ import {updateAmpStatus} from './validate';
 import {firebaseinit} from './firebase';
 import {login} from './auth';
 import {connect, save, getBin} from './db';
-import {updateHash} from './helpers';
+import {updateHash, updateActionStatus} from './helpers';
 
 var editor = loadEditor();
 
@@ -48,4 +48,5 @@ copyurlbutton.onclick = function() {
     dummy.select();
     document.execCommand('copy');
     document.body.removeChild(dummy);
+    updateActionStatus('copied');
 }

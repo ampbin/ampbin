@@ -2,9 +2,9 @@ export function updateHash(hash) {
     window.location.hash = '#' + hash;
 }
 
-export function updateSaveStatus() {
+export function updateActionStatus(text) {
     var savestatus = document.getElementById('savestatus');
-    savestatus.innerHTML = 'saved!';
+    savestatus.innerHTML = text + '!';
     setTimeout(function() {
         savestatus.classList.add('active');
     }, 200);

@@ -3,7 +3,7 @@ import {updateAmpStatus} from './validate';
 import {firebaseinit} from './firebase';
 import {login} from './auth';
 import {connect, save, getBin} from './db';
-import {updateHash} from './helpers';
+import {updateHash, updateActionStatus} from './helpers';
 
 var editor = loadEditor();
 
@@ -36,4 +36,17 @@ var newbinbutton = document.getElementById('newbin');
 newbin.onclick = function() {
     updateHash('');
     editor.setValue(document.getElementById('editor').value);
+}
+
+var copyurlbutton = document.getElementById('copyurl');
+copyurlbutton.onclick = function() {
+    
+    var dummy = document.createElement('input'),
+    text = window.location.href;
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    updateActionStatus('copied');
 }

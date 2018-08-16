@@ -37,6 +37,9 @@ header {
 #savebutton:disabled {
     color:#999;
 }
+.fa-container:focus {
+    outline:none;
+}
 #savebutton:focus, #newbin:focus {
     outline:none;
 }

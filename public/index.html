@@ -17,7 +17,7 @@
     <title>AMPb.in - Quickly create, validate, and share your AMP HTML.</title>
     <link rel="preload" href="https://cdn.ampproject.org/v0.js" as="script">
     <link rel="preload" href="https://cdn.ampproject.org/v0/validator.js" as="script">
-    <link rel="stylesheet" href="/main.css?v=2.5.0">
+    <link rel="stylesheet" href="/main.css?v=2.6.1">
 </head>
 <body>
     <header class="row">
@@ -25,7 +25,8 @@
             AMPb.in
             <button id="newbin" class="fa-container" title="New Bin"><i class="fal fa-file"></i></button>
             <button id="savebutton" class="fa-container" title="Save Bin" disabled><i class="fal fa-save"></i></button>
-            <button id="copyurl" class="fa-container" title="Copy Bin URL"><i class="fal fa-copy"></i></button>
+            <button id="copytext" class="fa-container" title="Copy AMP HTML"><i class="fal fa-copy"></i></button>
+            <button id="copyurl" class="fa-container" title="Copy Bin URL"><i class="fal fa-share-alt-square"></i></button>
             <span id="savestatus"></span>
         </div>
         <div class="col status-container">
@@ -45,10 +46,10 @@
   <script async src="https://cdn.ampproject.org/v0.js"></script>
   <style amp-custom>
     body {
-      font-family:Arial, Helvetica, sans-serif; 
+      font-family:Arial, Helvetica, sans-serif;
     }
     h1, p {
-      margin: 1rem; 
+      margin: 1rem;
     }
     h1 {
       font-weight:normal;
@@ -67,6 +68,6 @@
     <div id="previewcontainer">
     </div>
     <script src="https://cdn.ampproject.org/v0/validator.js"></script>
-    <script src="/main.js?v=2.5.0"></script>
+    <script src="/main.js?v=2.6.1"></script>
 </body>
 </html>

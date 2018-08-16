@@ -40,7 +40,7 @@ newbin.onclick = function() {
 
 var copyurlbutton = document.getElementById('copyurl');
 copyurlbutton.onclick = function() {
-    
+
     var dummy = document.createElement('input'),
     text = window.location.href;
     document.body.appendChild(dummy);
@@ -48,5 +48,18 @@ copyurlbutton.onclick = function() {
     dummy.select();
     document.execCommand('copy');
     document.body.removeChild(dummy);
-    updateActionStatus('copied');
+    updateActionStatus('copied bin url');
+}
+
+var copytextbutton = document.getElementById('copytext');
+copytextbutton.onclick = function() {
+    var dummy = document.createElement('textarea'),
+    amphtml = editor.getValue();
+    console.log(amphtml);
+    document.body.appendChild(dummy);
+    dummy.value = amphtml;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    updateActionStatus('copied amp html');
 }

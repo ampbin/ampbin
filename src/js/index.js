@@ -26,10 +26,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 if(window.location.hash.length > 0) {
-    firebase.auth().onAuthStateChanged(function(user) {
-        console.log("Loading bin.");
-        getBin(db, window.location.hash, editor);
-    });
+    console.log("Loading bin.");
+    getBin(db, window.location.hash, editor);
 }
 
 var newbinbutton = document.getElementById('newbin');

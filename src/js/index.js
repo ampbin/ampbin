@@ -69,7 +69,8 @@ copystaticbutton.onclick = function() {
         text = "https://static.ampb.in/" + text.replace("#", "") + ".html";
     } else {
         updateActionStatus('Please save a bin first');
-        text = "";
+        
+        return;
     }
     document.body.appendChild(dummy);
     dummy.value = text;

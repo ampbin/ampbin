@@ -1,4 +1,5 @@
 import {updateHash, updateActionStatus} from './helpers';
+import {toast} from './toast';
 
 export function connect(firebase) {
     const firestore = firebase.firestore();
@@ -17,7 +18,7 @@ export function save(db, userid, editor) {
     .then(function(docRef) {
         console.log("Document written with ID: ", docRef.id);
         updateHash(docRef.id);
-        updateActionStatus('saved');
+        toast('Saved', 'success');
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);

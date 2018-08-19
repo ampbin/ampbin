@@ -27,27 +27,18 @@ exports.binCounter = functions.region('us-east1').firestore.document('/bins/{doc
         });
     });
 
-// feel like there is a better way to do this.
-// exports.createFile = functions.region('us-east1').firestore.document('/bins/{documentId}')
-//     .onCreate((snap, context) => {
-//         let amphtml = snap.data().amphtml;
-//         let binid = context.params.documentId;
-//         let filename = binid + '.html';
-// 
-//         const bucket = storage.bucket('ampbin-fe479.appspot.com');
-//         const file = bucket.file(filename);
-//         return file.setMetadata({
-//             contentType: 'text/html'
-//         }).then(() => {
-//             const uploadStream = file.createWriteStream();
-//             uploadStream.on('error', (err) => {
-//                 res.send(err);
-//             }).on('finish', () => {
-//                 res.send('ok');
-//             });
-//             uploadStream.write(amphtml);
-//             uploadStream.end();
-// 
-//             return 'done';
-//         })
-// });
+exports.createFile = functions.region('us-east1').firestore.document('/bins/{documentId}')
+    .onCreate((snap, context) => {
+        let amphtml = snap.data().amphtml;
+        let binid = context.params.documentId;
+        
+        const bucket = admin.storage().bucket();
+        const file = bucket.file(binid + '.html');
+
+        return file.save(amphtml, {
+                metadata: {
+                    contentType: 'text/html'
+                },
+                resumable: false
+        });
+});

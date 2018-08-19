@@ -26,7 +26,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 if(window.location.hash.length > 0) {
-    console.log("Loading bin.");
     getBin(db, window.location.hash, editor);
 }
 
@@ -53,7 +52,6 @@ var copytextbutton = document.getElementById('copytext');
 copytextbutton.onclick = function() {
     var dummy = document.createElement('textarea'),
     amphtml = editor.getValue();
-    console.log(amphtml);
     document.body.appendChild(dummy);
     dummy.value = amphtml;
     dummy.select();

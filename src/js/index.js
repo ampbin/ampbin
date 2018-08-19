@@ -4,6 +4,7 @@ import {firebaseinit} from './firebase';
 import {login} from './auth';
 import {connect, save, getBin} from './db';
 import {updateHash, updateActionStatus} from './helpers';
+import {toast} from './toast';
 
 var editor = loadEditor();
 
@@ -45,7 +46,7 @@ copyurlbutton.onclick = function() {
     dummy.select();
     document.execCommand('copy');
     document.body.removeChild(dummy);
-    updateActionStatus('Copied edit URL');
+    toast('Copied edit URL', 'success');
 }
 
 var copytextbutton = document.getElementById('copytext');
@@ -57,7 +58,7 @@ copytextbutton.onclick = function() {
     dummy.select();
     document.execCommand('copy');
     document.body.removeChild(dummy);
-    updateActionStatus('Copied AMP HTML');
+    toast('Copied AMP HTML', 'success');
 }
 
 var copystaticbutton = document.getElementById('copystatic');
@@ -68,7 +69,7 @@ copystaticbutton.onclick = function() {
         text = window.location.hash;
         text = "https://static.ampb.in/" + text.replace("#", "") + ".html";
     } else {
-        updateActionStatus('Please save a bin first');
+        toast('Please save a bin first', 'info');
         
         return;
     }
@@ -77,5 +78,5 @@ copystaticbutton.onclick = function() {
     dummy.select();
     document.execCommand('copy');
     document.body.removeChild(dummy);
-    updateActionStatus('Copied rendered bin URL');
+    toast('Copied rendered bin URL', 'success');
 }

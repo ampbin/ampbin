@@ -45,7 +45,7 @@ copyurlbutton.onclick = function() {
     dummy.select();
     document.execCommand('copy');
     document.body.removeChild(dummy);
-    updateActionStatus('copied bin url');
+    updateActionStatus('Copied edit URL');
 }
 
 var copytextbutton = document.getElementById('copytext');
@@ -57,5 +57,24 @@ copytextbutton.onclick = function() {
     dummy.select();
     document.execCommand('copy');
     document.body.removeChild(dummy);
-    updateActionStatus('copied amp html');
+    updateActionStatus('Copied AMP HTML');
+}
+
+var copystaticbutton = document.getElementById('copystatic');
+copystaticbutton.onclick = function() {
+    var dummy = document.createElement('input');
+    var text;
+    if(window.location.hash) {
+        text = window.location.hash;
+        text = "https://static.ampb.in/" + text.replace("#", "") + ".html";
+    } else {
+        updateActionStatus('Please save a bin first');
+        text = "";
+    }
+    document.body.appendChild(dummy);
+    dummy.value = text;
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
+    updateActionStatus('Copied rendered bin URL');
 }

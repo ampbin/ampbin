@@ -1,5 +1,9 @@
 export function updateHash(hash) {
-    window.location.hash = '#' + hash;
+    if(hash.length > 0) {
+        return window.location.hash = '#' + hash;
+    }
+    
+    return window.location = '';
 }
 
 export function updateActionStatus(text) {

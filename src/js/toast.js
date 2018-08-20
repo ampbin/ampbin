@@ -2,14 +2,11 @@ export function toast(message, level) {
     let toast = document.getElementById('toast');
     toast.classList.add(level);
     toast.classList.add('visible');
-    
-    let txt = document.createTextNode(message);
-    
-    toast.appendChild(txt);
+    toast.innerHTML = message;
     
     setTimeout(function(){ 
         toast.classList.remove(level);
         toast.classList.remove('visible');
-        toast.removeChild(txt);
+        toast.innerHTML = '';
     }, 3000);
 }

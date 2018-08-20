@@ -7,6 +7,9 @@
 body {
     font-family:Arial, Helvetica, sans-serif;
 }
+.hide {
+    display:none;
+}
 
 /********************************************
 *
@@ -55,6 +58,14 @@ header {
     float:right;
     padding:0 20px;
     font-size:20px;
+}
+#userphoto {
+    float:right;
+}
+#userphoto img {
+    width:60px;
+    height:60px;
+    line-height: 60px;
 }
 .pass {
     background:green;

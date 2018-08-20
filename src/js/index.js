@@ -3,7 +3,7 @@ import {updateAmpStatus} from './validate';
 import {firebaseinit} from './firebase';
 import {login} from './auth';
 import {connect, save, getBin} from './db';
-import {updateHash, updateActionStatus} from './helpers';
+import {updateHash, updateActionStatus, authlistener, show, hide, isAnonymous, notAnonymous} from './helpers';
 import {toast} from './toast';
 
 var editor = loadEditor();
@@ -16,6 +16,8 @@ editor.on("change", function() {
 var firebase = firebaseinit();
 var userid = login(firebase);
 var db = connect(firebase);
+
+authlistener(firebase);
 
 var savebutton = document.getElementById('savebutton');
 firebase.auth().onAuthStateChanged(function(user) {
@@ -70,7 +72,7 @@ copystaticbutton.onclick = function() {
         text = "https://static.ampb.in/" + text.replace("#", "") + ".html";
     } else {
         toast('Please save a bin first', 'info');
-        
+
         return;
     }
     document.body.appendChild(dummy);
@@ -79,4 +81,23 @@ copystaticbutton.onclick = function() {
     document.execCommand('copy');
     document.body.removeChild(dummy);
     toast('Copied rendered bin URL', 'success');
+}
+
+
+var signinbutton = document.getElementById('signin');
+signinbutton.onclick = function() {
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        notAnonymous();
+    });
+}
+
+var signoutbutton = document.getElementById('signout');
+signoutbutton.onclick = function() {
+    firebase.auth().signOut();
+    isAnonymous();
 }

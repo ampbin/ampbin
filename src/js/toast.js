@@ -4,7 +4,7 @@ export function toast(message, level) {
     toast.classList.add('visible');
     toast.innerHTML = message;
     
-    setTimeout(function(){ 
+    setTimeout(() => { 
         toast.classList.remove(level);
         toast.classList.remove('visible');
         toast.innerHTML = '';

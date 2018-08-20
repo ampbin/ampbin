@@ -93,3 +93,12 @@ header {
 #preview {
     border:none;
 }
+
+@media screen and (max-width: 600px) {
+    .toolbar {
+        flex:80%;
+    }
+    .status-container {
+        flex:20%;
+    }
+}

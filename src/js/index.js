@@ -1,9 +1,9 @@
 import {loadEditor} from './editor';
 import {updateAmpStatus} from './validate';
 import {firebaseinit} from './firebase';
-import {login, persist} from './auth';
+import {login} from './auth';
 import {connect, save, getBin} from './db';
-import {updateHash, updateActionStatus} from './helpers';
+import {updateHash, updateActionStatus, authlistener} from './helpers';
 import {toast} from './toast';
 
 var editor = loadEditor();
@@ -14,8 +14,11 @@ editor.on("change", function() {
 });
 
 var firebase = firebaseinit();
+console.log(firebase.auth().currentUser);
 var userid = login(firebase);
 var db = connect(firebase);
+
+authlistener(firebase);
 
 var savebutton = document.getElementById('savebutton');
 firebase.auth().onAuthStateChanged(function(user) {
@@ -81,24 +84,14 @@ copystaticbutton.onclick = function() {
     toast('Copied rendered bin URL', 'success');
 }
 
-var provider = new firebase.auth.GoogleAuthProvider();
+
 var signinbutton = document.getElementById('signin');
 signinbutton.onclick = function() {
+    var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      var user = result.user;
-      persist(firebase);
-      // ...
-    }).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
     });
 }

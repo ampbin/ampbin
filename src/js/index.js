@@ -38,18 +38,18 @@ newbin.onclick = function() {
     editor.setValue(document.getElementById('editor').value);
 }
 
-var copyurlbutton = document.getElementById('copyurl');
-copyurlbutton.onclick = function() {
-
-    var dummy = document.createElement('input'),
-    text = window.location.href;
-    document.body.appendChild(dummy);
-    dummy.value = text;
-    dummy.select();
-    document.execCommand('copy');
-    document.body.removeChild(dummy);
-    toast('Copied edit URL', 'success');
-}
+// var copyurlbutton = document.getElementById('copyurl');
+// copyurlbutton.onclick = function() {
+// 
+//     var dummy = document.createElement('input'),
+//     text = window.location.href;
+//     document.body.appendChild(dummy);
+//     dummy.value = text;
+//     dummy.select();
+//     document.execCommand('copy');
+//     document.body.removeChild(dummy);
+//     toast('Copied edit URL', 'success');
+// }
 
 var copytextbutton = document.getElementById('copytext');
 copytextbutton.onclick = function() {

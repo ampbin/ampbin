@@ -3,7 +3,7 @@ import {updateAmpStatus} from './validate';
 import {firebaseinit} from './firebase';
 import {login} from './auth';
 import {connect, save, getBin} from './db';
-import {updateHash, updateActionStatus, authlistener} from './helpers';
+import {updateHash, updateActionStatus, authlistener, show, hide, isAnonymous, notAnonymous} from './helpers';
 import {toast} from './toast';
 
 var editor = loadEditor();
@@ -92,10 +92,12 @@ signinbutton.onclick = function() {
         var token = result.credential.accessToken;
         // The signed-in user info.
         var user = result.user;
+        notAnonymous();
     });
 }
 
 var signoutbutton = document.getElementById('signout');
 signoutbutton.onclick = function() {
     firebase.auth().signOut();
+    isAnonymous();
 }

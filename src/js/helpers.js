@@ -20,5 +20,37 @@ export function updateActionStatus(text) {
 export function authlistener(firebase) {
     firebase.auth().onAuthStateChanged(function(user) {
         console.log('User: ' + user.uid);
+        if(!user.isAnonymous) {
+            notAnonymous();
+            addUserImage(user);
+        }
+
     });
+}
+
+export function hide(id) {
+    let el = document.getElementById(id);
+    el.classList.add('hide');
+}
+
+export function show(id) {
+    let el = document.getElementById(id);
+    el.classList.remove('hide');
+}
+
+export function notAnonymous() {
+    show('signout');
+    hide('signin');
+}
+
+export function isAnonymous() {
+    show('signin');
+    hide('signout');
+}
+
+function addUserImage(user) {
+    let el = document.getElementById('userphoto');
+    let img = document.createElement('img');
+    img.src = user.providerData[0].photoURL;
+    el.appendChild(img);
 }

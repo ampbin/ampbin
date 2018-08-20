@@ -94,3 +94,8 @@ signinbutton.onclick = function() {
         var user = result.user;
     });
 }
+
+var signoutbutton = document.getElementById('signout');
+signoutbutton.onclick = function() {
+    firebase.auth().signOut();
+}

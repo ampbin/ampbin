@@ -14,7 +14,6 @@ editor.on("change", function() {
 });
 
 var firebase = firebaseinit();
-console.log(firebase.auth().currentUser);
 var userid = login(firebase);
 var db = connect(firebase);
 

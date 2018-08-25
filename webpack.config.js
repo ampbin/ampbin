@@ -4,13 +4,15 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-    entry: ['./src/js/index.js', './src/scss/main.scss'],
+    entry: ['./src/ts/app.ts', './src/scss/main.scss'],
+    devtool: "inline-source-map",
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'public')
     },
     module: {
         rules: [
+            { test: /\.tsx?$/, loader: "ts-loader" },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,

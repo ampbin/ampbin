@@ -7,6 +7,7 @@ import 'codemirror/mode/xml/xml';
 var delay, editor;
 var previewContainer = document.getElementById('previewcontainer');
 
+// Load the editor.
 export function loadEditor() {
     editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
         mode: 'text/html',
@@ -23,6 +24,7 @@ export function loadEditor() {
     return editor;
 }
 
+// Update the preview pane
 function updatePreview() {
     emptyPreviewContainer();
     createPreviewIframe();
@@ -33,10 +35,12 @@ function updatePreview() {
     preview.close();
 }
 
+// Empty the container
 function emptyPreviewContainer() {
     previewContainer.innerHTML = '';
 }
 
+// Create a new iframe for the container
 function createPreviewIframe() {
     var iframe = document.createElement('iframe');
     iframe.id = 'preview';

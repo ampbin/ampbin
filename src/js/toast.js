@@ -1,3 +1,5 @@
+// Simple toast type notifications
+
 export function toast(message, level) {
     let toast = document.getElementById('toast');
     toast.classList.add(level);

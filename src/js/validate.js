@@ -1,3 +1,4 @@
+// Update AMP validation status icons
 export function updateAmpStatus(status) {
     var ampStatusContainer = document.getElementById('amp_status');
     ampStatusContainer.classList.remove('pass');

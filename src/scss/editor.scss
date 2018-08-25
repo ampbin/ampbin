@@ -1,0 +1,17 @@
+/********************************************
+*
+* Editor/Preview
+*
+* *******************************************/
+.CodeMirror, #editor, #preview {
+    width:50%;
+    float:left;
+    height:calc(100vh - 50px);
+    border-right:1px solid #64798f1f;
+}
+.CodeMirror, #preview {
+    box-sizing: border-box;
+}
+#preview {
+    border:none;
+}

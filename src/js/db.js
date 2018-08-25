@@ -1,6 +1,7 @@
 import {updateHash, updateActionStatus} from './helpers';
 import {toast} from './toast';
 
+// Connect to the database
 export function connect(firebase) {
     const firestore = firebase.firestore();
     const settings = {timestampsInSnapshots: true};
@@ -9,6 +10,7 @@ export function connect(firebase) {
     return firebase.firestore();
 }
 
+// Save a bin to the database
 export function save(db, userid, editor) {
     db.collection("bins").add({
         user: userid,
@@ -25,6 +27,7 @@ export function save(db, userid, editor) {
     });
 }
 
+// Get a bin from the database.
 export function getBin(db, bin, editor) {
     bin = bin.replace("#", "");
     console.log("Getting bin " + bin);

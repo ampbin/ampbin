@@ -1,3 +1,4 @@
+// This really isn't doing anything
 export function login(firebase) {
     firebase.auth().onAuthStateChanged(function(user) {
         if (!user) {

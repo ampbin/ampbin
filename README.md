@@ -2,7 +2,7 @@
 
 Quickly create, validate, and share your AMP HTML with this easy to use AMP HTML Editor.
 
-[AMPb.in](https://ampb.in/). [Contributing](CONTRIBUTING.md). [License](LICENSE).
+[AMPb.in](https://ampb.in/). [Contributing](.github/CONTRIBUTING.md). [License](LICENSE).
 [Issues](https://github.com/levidurfee/ampbin/issues). [Roadmap][3].
 
 Contributions are welcome. You can help by requesting features, reporting bugs, 

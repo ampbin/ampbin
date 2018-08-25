@@ -17,18 +17,19 @@
     <title>AMPb.in - Quickly create, validate, and share your AMP HTML.</title>
     <link rel="preload" href="https://cdn.ampproject.org/v0.js" as="script">
     <link rel="preload" href="https://cdn.ampproject.org/v0/validator.js" as="script">
-    <link rel="stylesheet" href="/main.css?v=2.10.3">
+    <link rel="stylesheet" href="/main.css?v=2.11.0">
 </head>
 <body>
     <header class="row">
         <div class="col brand toolbar">
             AMPb.in
-            <button id="newbin" class="fa-container" title="New bin"><i class="fal fa-file"></i></button>
-            <button id="savebutton" class="fa-container" title="Save bin" disabled><i class="fal fa-save"></i></button>
-            <button id="copytext" class="fa-container" title="Copy AMP HTML"><i class="fal fa-copy"></i></button>
-            <button id="copystatic" class="fa-container" title="Share rendered bin"><i class="fal fa-share-alt-square"></i></button>
-            <button id="signin" class="fa-container" title="Sign in using your Google account"><i class="fal fa-sign-in-alt"></i></button>
-            <button id="signout" class="fa-container hide" title="Sign out"><i class="fal fa-sign-out-alt"></i></button>
+            <button id="newbin" class="fa-container" aria-label="Create a new bin" title="New bin"><i class="fal fa-file"></i></button>
+            <button id="savebutton" class="fa-container" aria-label="Save your AMP HTML to a bin" title="Save bin" disabled><i class="fal fa-save"></i></button>
+            <button id="copytext" class="fa-container" aria-label="Copy the AMP HTML to your clipboard" title="Copy AMP HTML"><i class="fal fa-copy"></i></button>
+            <button id="copystatic" class="fa-container" aria-label="Get a shareable link for your AMP HTML" title="Share rendered bin"><i class="fal fa-share-alt-square"></i></button>
+            <button id="signin" class="fa-container" aria-label="Sign in to this website using your Google account" title="Sign in using your Google account"><i class="fal fa-sign-in-alt"></i></button>
+            <button id="signout" class="fa-container hide" aria-label="Sign out of the website" title="Sign out"><i class="fal fa-sign-out-alt"></i></button>
+            <a id="help" class="fa-container" aria-label="Additional resources for help" href="https://github.com/ampbin/ampbin/wiki/Help" target="_BLANK" title="Help"><i class="fal fa-question-circle"></i></a>
             <span id="savestatus"></span>
 
         </div>
@@ -87,7 +88,7 @@
     <div id="previewcontainer">
     </div>
     <script src="https://cdn.ampproject.org/v0/validator.js"></script>
-    <script src="/main.js?v=2.10.3"></script>
+    <script src="/main.js?v=2.11.0"></script>
     <div id="toast"></div>
 </body>
 </html>

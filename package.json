@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.7.3",
+    "@firebase/app-types": "0.x",
     "@types/codemirror": "^0.0.61",
     "css-loader": "^1.0.0",
     "firebase": "^5.5.2",

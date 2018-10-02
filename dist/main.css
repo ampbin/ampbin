@@ -1,3 +1,10 @@
+body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+.hide {
+    display:none;
+}
+
 /********************************************
 *
 * Header
@@ -62,3 +69,24 @@ header {
     background:red;
     color:#fff;
 }
+#App div .CodeMirror, #editor, #preview iframe {
+    width:50%;
+    float:left;
+    height:calc(100vh - 60px);
+    border-right:1px solid #64798f1f;
+}
+#App div .CodeMirror, #preview, #preview iframe {
+    box-sizing: border-box;
+}
+#preview iframe {
+    border:none;
+}
+@media screen and (max-width: 600px) {
+    .toolbar {
+        flex:65%;
+    }
+    .status-container {
+        flex:35%;
+    }
+}
+

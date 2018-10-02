@@ -1,27 +1,30 @@
 {
-  "scripts": {
-    "prod": "webpack --mode=production",
-    "dev": "webpack --mode=development --watch"
-  },
+  "name": "ampbin-garbage",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "ssh://git-codecommit.us-east-2.amazonaws.com/v1/repos/ampbin-garbage",
+  "author": "Levi Durfee <levi.durfee@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "@fortawesome/fontawesome-pro": "^5.2.0",
-    "autoprefixer": "^9.1.1",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "codemirror": "^5.39.2",
+    "@ampproject/rollup-plugin-closure-compiler": "^0.7.3",
+    "@types/codemirror": "^0.0.61",
     "css-loader": "^1.0.0",
-    "extract-loader": "^2.0.1",
-    "file-loader": "^1.1.11",
-    "firebase": "^5.3.1",
-    "mini-css-extract-plugin": "^0.4.1",
+    "firebase": "^5.5.2",
+    "mini-css-extract-plugin": "^0.4.3",
     "node-sass": "^4.9.3",
-    "normalize.css": "^8.0.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.0",
-    "postcss-loader": "^3.0.0",
+    "preact": "^8.3.1",
+    "raw-loader": "^0.5.1",
+    "rollup": "^0.66.2",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.22.1",
-    "uglifyjs-webpack-plugin": "^1.3.0",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
+    "ts-loader": "^5.2.1",
+    "typescript": "^3.1.1",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "watch": "webpack --mode development --env development --progress --color --watch --display-error-details --verbose --display-modules",
+    "development": "webpack --mode development --env development",
+    "production": "webpack --mode production --env production; rollup -c",
+    "compiler": "rollup -c"
   }
 }

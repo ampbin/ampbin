@@ -23,7 +23,8 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "watch": "webpack --mode development --env development --progress --color --watch --display-error-details --verbose --display-modules",
+    "watch": "webpack --mode development --env development --progress --color --watch",
+    "verbose": "webpack --mode development --env development --progress --color --watch --display-error-details --verbose --display-modules",
     "development": "webpack --mode development --env development",
     "production": "webpack --mode production --env production; rollup -c",
     "compiler": "rollup -c"

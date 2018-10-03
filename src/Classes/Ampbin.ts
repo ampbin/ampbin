@@ -1,10 +1,11 @@
 // Ampbin.ts
-import { EditorInterface, DatabaseInterface } from '../Interfaces';
+import { EditorInterface, DatabaseInterface, AuthInterface } from '../Interfaces';
 
 export class Ampbin {
 
   private editor: EditorInterface;
   private database: DatabaseInterface;
+  private auth: AuthInterface;
 
   /**
    * Set the editor property on the class
@@ -21,6 +22,10 @@ export class Ampbin {
   setDatabase(database: DatabaseInterface) {
     this.database = database;
   }
+  
+  setAuth(auth: AuthInterface) {
+    this.auth = auth;
+  }
 
   /**
    * Start the application.
@@ -29,6 +34,13 @@ export class Ampbin {
    */
   start() {
     this.editor.start(300);
+    // this.auth.getAuth().onAuthStateChanged((user: firebase.User) => {
+    //   if(user) {
+    //     console.log(user);
+    //   } else {
+    //     // this.auth.loginAnonymously();
+    //   }
+    // });
   }
 
   /**
@@ -49,6 +61,14 @@ export class Ampbin {
     };
     const docref = this.database.create('bins', document);
     console.log(docref);
+  }
+  
+  getAuth() {
+    return this.auth;
+  }
+  
+  getFirebaseAuth() {
+    return this.auth.getAuth();
   }
 
 }

@@ -28,7 +28,8 @@ class App extends Component<AppInterface, AppState> {
         <Button
           name="fa-sign-out-alt"
           onClick={() => {
-            console.log("clicked");
+            this.setState({loggedIn: false});
+            this.props.app.getAuth().logout();
           }}
         />
       );
@@ -37,7 +38,17 @@ class App extends Component<AppInterface, AppState> {
         <Button
           name="fa-sign-in-alt"
           onClick={() => {
-            console.log("clicked");
+            {
+              // For some reason, setState is killing the editor
+              this.setState({loggedIn: true});
+            /* const result = this.props.app.getAuth().loginWithGoogle();
+            result.then((value) => {
+              if(value) {
+                return this.setState({loggedIn: true});
+              }
+              
+              return this.setState({loggedIn: false});
+            }); */}
           }}
         />
       );
@@ -88,6 +99,13 @@ class App extends Component<AppInterface, AppState> {
 
   componentDidMount() {
     this.props.callback();
+    // this.props.app.getFirebaseAuth().onAuthStateChanged((user) => {
+    //   if(user) {
+    //     return this.setState({loggedIn: true});
+    //   }
+    // 
+    //   return this.setState({loggedIn: false});
+    // });
   }
 }
 

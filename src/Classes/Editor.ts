@@ -7,7 +7,7 @@ declare var CodeMirror: typeof import('codemirror');
  * Sort of a Factory function that builds an Editor class for us.
  */
 export function createEditor(editorId: string, previewId: string, settings: object): EditorInterface {
-  const cm = CodeMirror.fromTextArea(document.getElementById(editorId) as HTMLTextAreaElement, settings);
+  const cm = CodeMirror(document.getElementById(editorId) as HTMLTextAreaElement, settings);
 
   return new Editor(cm, document.getElementById(previewId));
 }

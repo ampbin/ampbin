@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.7.3",
+    "@firebase/app-types": "0.x",
     "@types/codemirror": "^0.0.61",
     "css-loader": "^1.0.0",
     "firebase": "^5.5.2",
@@ -16,14 +17,16 @@
     "raw-loader": "^0.5.1",
     "rollup": "^0.66.2",
     "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
     "ts-loader": "^5.2.1",
     "typescript": "^3.1.1",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "watch": "webpack --mode development --env development --progress --color --watch --display-error-details --verbose --display-modules",
-    "development": "webpack --mode development --env development",
+    "watch": "webpack --mode development --env development --progress --color --watch",
+    "verbose": "webpack --mode development --env development --progress --color --watch --display-error-details --verbose --display-modules",
+    "development": "webpack --mode development --env development --verbose --display-modules",
     "production": "webpack --mode production --env production; rollup -c",
     "compiler": "rollup -c"
   }

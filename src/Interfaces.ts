@@ -19,3 +19,18 @@ export interface EditorInterface {
   reset(): void;
   getValue(): string;
 }
+
+export interface AuthInterface {
+  loginWithGoogle(): Promise<boolean>;
+  loginAnonymously(): void;
+  logout(): Promise<void>;
+  getCurrentUser(): firebase.User;
+  getAuth(): firebase.auth.Auth;
+}
+
+export interface AuthProviders {
+  google?: firebase.auth.AuthProvider;
+  github?: firebase.auth.AuthProvider;
+  facebook?: firebase.auth.AuthProvider;
+  twitter?: firebase.auth.AuthProvider;
+}

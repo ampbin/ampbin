@@ -5,11 +5,6 @@ body {
     display:none;
 }
 
-/********************************************
-*
-* Header
-*
-* *******************************************/
 header {
     height:60px;
     line-height: 60px;
@@ -38,29 +33,6 @@ header {
 .fa-container:focus {
     outline:none;
 }
-#savebutton:focus, #newbin:focus {
-    outline:none;
-}
-#savestatus {
-    color:#fff;
-    transition:color .8s;
-}
-#savestatus.active {
-    color:#424242;
-}
-#amp_status {
-    float:right;
-    padding:0 20px;
-    font-size:20px;
-}
-#userphoto {
-    float:right;
-}
-#userphoto img {
-    width:60px;
-    height:60px;
-    line-height: 60px;
-}
 .pass {
     background:green;
     color:#fff;
@@ -69,18 +41,26 @@ header {
     background:red;
     color:#fff;
 }
-#App div .CodeMirror, #editor, #preview iframe {
-    width:50%;
-    float:left;
-    height:calc(100vh - 60px);
-    border-right:1px solid #64798f1f;
+
+#editor, #preview {
+  width:50%;
+  box-sizing: border-box;
+  height:calc(100vh - 60px);
+  float:left;
 }
-#App div .CodeMirror, #preview, #preview iframe {
-    box-sizing: border-box;
+#editor {
+  border-right:1px solid #64798f1f;
+  .CodeMirror {
+    height:100%;
+  }
 }
-#preview iframe {
+#preview {
+  iframe {
+    width:100%;
     border:none;
+  }
 }
+
 @media screen and (max-width: 600px) {
     .toolbar {
         flex:65%;

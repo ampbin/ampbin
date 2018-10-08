@@ -23,7 +23,7 @@ export interface EditorInterface {
 export interface AuthInterface {
   loginWithGoogle(): Promise<boolean>;
   loginAnonymously(): void;
-  logout(): void;
+  logout(): Promise<void>;
   getCurrentUser(): firebase.User;
   getAuth(): firebase.auth.Auth;
 }

@@ -9,6 +9,11 @@ const authProviders = {
   google: new firebase.auth.GoogleAuthProvider()
 };
 
+/*
+@TODO: setState removes the editor since it wasn't created by preact.
+       maybe i could put it in an iframe like the preview does?
+ */
+
 const ab = new Ampbin();
 
 // Preact App Component componentDidMount calls bootstrap

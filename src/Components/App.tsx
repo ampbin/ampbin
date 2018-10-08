@@ -28,8 +28,10 @@ class App extends Component<AppInterface, AppState> {
         <Button
           name="fa-sign-out-alt"
           onClick={() => {
-            this.setState({loggedIn: false});
-            this.props.app.getAuth().logout();
+            const result = this.props.app.getAuth().logout();
+            result.then(() => {
+              this.setState({loggedIn: false});
+            });
           }}
         />
       );
@@ -38,17 +40,15 @@ class App extends Component<AppInterface, AppState> {
         <Button
           name="fa-sign-in-alt"
           onClick={() => {
-            {
               // For some reason, setState is killing the editor
-              this.setState({loggedIn: true});
-            /* const result = this.props.app.getAuth().loginWithGoogle();
+            const result = this.props.app.getAuth().loginWithGoogle();
             result.then((value) => {
               if(value) {
                 return this.setState({loggedIn: true});
               }
-              
+
               return this.setState({loggedIn: false});
-            }); */}
+            });
           }}
         />
       );
@@ -91,7 +91,7 @@ class App extends Component<AppInterface, AppState> {
             />
           </div>
         </header>
-        <textarea id={this.props.editorId} />
+        <div id={this.props.editorId} />
         <div id={this.props.previewId} />
       </div>
     );
@@ -99,13 +99,13 @@ class App extends Component<AppInterface, AppState> {
 
   componentDidMount() {
     this.props.callback();
-    // this.props.app.getFirebaseAuth().onAuthStateChanged((user) => {
-    //   if(user) {
-    //     return this.setState({loggedIn: true});
-    //   }
-    // 
-    //   return this.setState({loggedIn: false});
-    // });
+    this.props.app.getFirebaseAuth().onAuthStateChanged((user) => {
+      if(user) {
+        return this.setState({loggedIn: true});
+      }
+
+      return this.setState({loggedIn: false});
+    });
   }
 }
 

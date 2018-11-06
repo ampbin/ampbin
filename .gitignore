@@ -1,4 +1,5 @@
 /node_modules
 /.ignore
+/.firebase
 firebase-debug.log
 yarn-error.log

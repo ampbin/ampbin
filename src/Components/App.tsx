@@ -45,6 +45,7 @@ class App extends Component<AppInterface, AppState> {
     if (this.state.loggedIn) {
       inOut = (
         <Button
+          title="Logout"
           name="fa-sign-out-alt"
           onClick={() => {
             const result = this.props.app.getAuth().logout();
@@ -57,6 +58,7 @@ class App extends Component<AppInterface, AppState> {
     } else {
       inOut = (
         <Button
+          title="Login"
           name="fa-sign-in-alt"
           onClick={() => {
               // For some reason, setState is killing the editor
@@ -78,31 +80,29 @@ class App extends Component<AppInterface, AppState> {
           <div class="col brand toolbar">
             AMPb.in
             <Button
+              title="New Bin"
               name="fa-file"
               onClick={() => {
                 this.props.app.reset();
               }}
             />
             <Button
+              title="Save Bin"
               name="fa-save"
               onClick={() => {
                 this.props.app.save();
               }}
             />
             <Button
-              name="fa-copy"
-              onClick={() => {
-                console.log("clicked");
-              }}
-            />
-            <Button
+              title="Share Bin"
               name="fa-share-alt-square"
               onClick={() => {
-                console.log("clicked");
+                this.props.app.copyStaticUrl();
               }}
             />
             {inOut}
             <Button
+              title="Help"
               name="fa-question-circle"
               onClick={() => {
                 console.log("clicked");

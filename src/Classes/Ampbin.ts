@@ -41,6 +41,13 @@ export class Ampbin {
     //     // this.auth.loginAnonymously();
     //   }
     // });
+    if(window.location.hash.length > 0) {
+      let doc = this.database.retrieve('bins', window.location.hash.replace("#", ""));
+      doc.then((e) => {
+        this.getEditor().getCodemirror().setValue(e.get('amphtml'));
+      });
+      
+    }
   }
 
   /**
@@ -55,12 +62,14 @@ export class Ampbin {
    */
   save() {
     const document = {
-      user: '', // @TODO get actual user id
+      user: this.getAuth().getCurrentUser() ? this.getAuth().getCurrentUser().uid : '',
       amphtml: this.editor.getValue(),
-      saved: 3 // @TODO get saved datetime
+      saved: Date.now()
     };
     const docref = this.database.create('bins', document);
-    console.log(docref);
+    docref.then((e) => {
+      window.location.hash = '#' + e;
+    });
   }
   
   getAuth() {
@@ -73,6 +82,19 @@ export class Ampbin {
   
   getEditor() {
       return this.editor;
+  }
+
+  copyStaticUrl() {
+    this.copyToClipboard('https://static.ampb.in/' + window.location.hash.replace("#", "") + ".html");
+  }
+
+  copyToClipboard(input: string) {
+    var dummy = document.createElement('input');
+    dummy.value = input;
+    document.body.appendChild(dummy);
+    dummy.select();
+    document.execCommand('copy');
+    document.body.removeChild(dummy);
   }
 
 }

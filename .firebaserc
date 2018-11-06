@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "ampbin-fe479",
-    "staging": "ampbin-staging"
+    "default": "ampbin-staging"
   }
 }

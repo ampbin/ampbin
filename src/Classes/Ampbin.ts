@@ -70,5 +70,9 @@ export class Ampbin {
   getFirebaseAuth() {
     return this.auth.getAuth();
   }
+  
+  getEditor() {
+      return this.editor;
+  }
 
 }

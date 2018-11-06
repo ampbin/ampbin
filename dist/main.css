@@ -55,9 +55,27 @@ header {
   width: 100%;
   border: none; }
 
+.header-right {
+  float: right; }
+
+.validation-status {
+  width: 50px; }
+
+.validation-status.pass {
+  background: #4BB543; }
+
+.center-text {
+  text-align: center; }
+
 @media screen and (max-width: 600px) {
   .toolbar {
     flex: 65%; }
   .status-container {
     flex: 35%; } }
+
+select {
+  border: 0;
+  color: #444444;
+  font-family: Arial, Helvetica, sans-serif;
+  outline: none; }
 

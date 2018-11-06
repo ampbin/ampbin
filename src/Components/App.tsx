@@ -2,6 +2,9 @@
 import { h, Component, render } from "preact";
 import { Ampbin } from "../Classes/Ampbin";
 import { Button } from "./Button";
+import { Validator as ValidatorComponent } from "./Validator";
+
+declare let amp: any;
 
 interface AppInterface {
   app: Ampbin;
@@ -12,13 +15,29 @@ interface AppInterface {
 
 interface AppState {
   loggedIn: boolean;
+  valid: boolean;
+  format: string;
 }
 
 class App extends Component<AppInterface, AppState> {
   constructor() {
     super();
 
-    this.setState({ loggedIn: false });
+    this.setState({ 
+      loggedIn: false,
+      valid: true,
+      format: ''
+    });
+
+    this.handleChange = this.handleChange.bind(this);
+
+  }
+
+  handleChange(event: any) {
+    console.log(event.target.value);
+    this.setState({format: event.target.value});
+    this.props.app.getEditor().reset();
+    // @TODO load a file that is valid for each format
   }
 
   render() {
@@ -89,6 +108,14 @@ class App extends Component<AppInterface, AppState> {
                 console.log("clicked");
               }}
             />
+            <select onChange={this.handleChange}>
+              <option value="">AMPHTML</option>
+              <option value="AMP4ADS">AMP4ADS</option>
+              <option value="AMPEMAIL">AMPEMAIL</option>
+            </select>
+            <span className="header-right">
+                <ValidatorComponent valid={this.state.valid} />
+            </span>
           </div>
         </header>
         <div id={this.props.editorId} />
@@ -105,6 +132,20 @@ class App extends Component<AppInterface, AppState> {
       }
 
       return this.setState({loggedIn: false});
+    });
+    this.props.app.getEditor().getCodemirror().on('change', (e) => {
+      console.log(this.state.format);
+      let result = amp.validator.validateString(e.getValue(), this.state.format /* pass in amp format */);
+      if(result.status == "PASS") {
+        this.setState({valid:true});
+      } else {
+        this.setState({valid:false});
+        for(let i=0; i<result.errors.length; i++) {
+          // console.log(result.errors[i].code);
+          // console.log('line: ' + result.errors[i].line, 'column: ' + result.errors[i].col);
+          // console.log(result.errors[i].specUrl);
+        }
+      }
     });
   }
 }

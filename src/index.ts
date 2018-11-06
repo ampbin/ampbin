@@ -4,6 +4,7 @@ import { Ampbin } from './Classes/Ampbin';
 import { createEditor } from './Classes/Editor';
 import { Database } from './Classes/Database';
 import { Auth } from './Classes/Auth';
+import { Validate } from './Classes/Validate';
 
 const authProviders = {
   google: new firebase.auth.GoogleAuthProvider()
@@ -33,6 +34,8 @@ function bootstrap() {
   ab.setEditor(editor);
   ab.setDatabase(db);
   ab.setAuth(auth);
+  
+  ab.getEditor().addListener(new Validate());
 
   // Start whatever else is needed
   ab.start();

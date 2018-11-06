@@ -2,6 +2,7 @@
 import * as html from '../amp.html';
 import { EditorInterface } from '../Interfaces';
 declare var CodeMirror: typeof import('codemirror');
+import { EditorListenerInterface } from '../Interfaces';
 
 /**
  * Sort of a Factory function that builds an Editor class for us.
@@ -17,6 +18,7 @@ class Editor implements EditorInterface {
   private codemirror: CodeMirror.Editor;
   private preview: HTMLElement;
   private delay: NodeJS.Timer;
+  private listeners: EditorListenerInterface[];
 
   /**
    * Editor class
@@ -27,6 +29,7 @@ class Editor implements EditorInterface {
     codemirror.setValue(html);
     this.codemirror = codemirror;
     this.preview = preview;
+    this.listeners = new Array;
   }
 
   /**
@@ -67,6 +70,7 @@ class Editor implements EditorInterface {
       clearTimeout(_self.delay);
       _self.updatePreview();
       _self.delay = global.setTimeout(_self.updatePreview, interval);
+      _self.onChange();
     });
   }
 
@@ -76,6 +80,31 @@ class Editor implements EditorInterface {
    */
   getValue() {
     return this.codemirror.getValue();
+  }
+  
+  /**
+   * Add an event listener for the editor.
+   *
+   * This appends the listener to an array of EditorListenerInterface
+   * @param  listener [description]
+   */
+  addListener(listener: EditorListenerInterface) {
+      this.listeners.push(listener);
+  }
+  
+  /**
+   * onChange calls all the getNewHtml method on all the objects stored in 
+   * the listeners property. Each object in that array implements the 
+   * EditorListenerInterface and must have the getNewHtml method.
+   */
+  onChange() {
+      for(let i=0; i<this.listeners.length; i++) {
+          this.listeners[i].getNewHtml(this.codemirror.getValue());
+      }
+  }
+
+  getCodemirror() {
+    return this.codemirror;
   }
 
 }

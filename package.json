@@ -8,10 +8,7 @@
   "dependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.7.3",
     "@firebase/app-types": "0.x",
-<<<<<<< HEAD
-=======
     "@types/amphtml-validator": "^1.0.0",
->>>>>>> v3/validation
     "@types/codemirror": "^0.0.61",
     "css-loader": "^1.0.0",
     "firebase": "^5.5.2",

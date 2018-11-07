@@ -51,10 +51,12 @@ header {
   #editor .CodeMirror {
     height: 100%; }
 
-#preview iframe {
-  width: 100%;
-  border: none;
-  height: 100%; }
+#preview {
+  border-right: 1px solid #64798f1f; }
+  #preview iframe {
+    width: 100%;
+    border: none;
+    height: 100%; }
 
 .header-right {
   float: right; }

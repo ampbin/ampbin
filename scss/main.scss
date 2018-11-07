@@ -58,6 +58,7 @@ header {
   iframe {
     width:100%;
     border:none;
+    height:100%;
   }
 }
 
@@ -67,6 +68,7 @@ header {
 
 .validation-status {
     width:50px;
+    display: inline-block;
 }
 
 .validation-status.pass {
@@ -84,6 +86,9 @@ header {
     .status-container {
         flex:35%;
     }
+    .header-right {
+        display:none;
+    }
 }
 
 select {
@@ -91,4 +96,16 @@ select {
     color:#444444;
     font-family: Arial, Helvetica, sans-serif;
     outline:none;
+}
+
+.input-box {
+    display:inline;
+}
+
+#viewportSize {
+    height:50px;
+    border:0;
+    text-align:right;
+    padding-right:10px;
+    width:50px;
 }

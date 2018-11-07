@@ -17,6 +17,7 @@ interface AppState {
   loggedIn: boolean;
   valid: boolean;
   format: string;
+  viewportSize: string;
 }
 
 class App extends Component<AppInterface, AppState> {
@@ -26,10 +27,12 @@ class App extends Component<AppInterface, AppState> {
     this.setState({ 
       loggedIn: false,
       valid: true,
-      format: ''
+      format: '',
+      viewportSize: '50%'
     });
 
     this.handleChange = this.handleChange.bind(this);
+    this.changeViewportSize = this.changeViewportSize.bind(this);
 
   }
 
@@ -38,6 +41,10 @@ class App extends Component<AppInterface, AppState> {
     this.setState({format: event.target.value});
     this.props.app.getEditor().reset();
     // @TODO load a file that is valid for each format
+  }
+
+  changeViewportSize(event: any) {
+    this.setState({viewportSize: event.target.value});
   }
 
   render() {
@@ -113,13 +120,18 @@ class App extends Component<AppInterface, AppState> {
               <option value="AMP4ADS">AMP4ADS</option>
               <option value="AMPEMAIL">AMPEMAIL</option>
             </select>
+            
             <span className="header-right">
+              <div className="input-box">
+                <span class="unit">Viewport Size</span>
+                <input type="text" id="viewportSize" value={this.state.viewportSize} onKeyUp={this.changeViewportSize} />
+              </div>
                 <ValidatorComponent valid={this.state.valid} />
             </span>
           </div>
         </header>
         <div id={this.props.editorId} />
-        <div id={this.props.previewId} />
+        <div id={this.props.previewId} style={{width: this.state.viewportSize}} />
       </div>
     );
   }

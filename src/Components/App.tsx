@@ -3,6 +3,8 @@ import { h, Component, render } from "preact";
 import { Ampbin } from "../Classes/Ampbin";
 import { Button } from "./Button";
 import { Validator as ValidatorComponent } from "./Validator";
+import * as amp4ads from '../amp4ads.html';
+import * as amp4email from '../amp4email.html';
 
 declare let amp: any;
 
@@ -37,9 +39,14 @@ class App extends Component<AppInterface, AppState> {
   }
 
   handleChange(event: any) {
-    console.log(event.target.value);
     this.setState({format: event.target.value});
-    this.props.app.getEditor().reset();
+    if(this.state.format == "") {
+      this.props.app.getEditor().reset();
+    } else if(this.state.format == "AMP4ADS") {
+      this.props.app.getEditor().getCodemirror().setValue(amp4ads);
+    } else if(this.state.format == "AMP4EMAIL") {
+      this.props.app.getEditor().getCodemirror().setValue(amp4email);
+    }
     // @TODO load a file that is valid for each format
   }
 
@@ -118,7 +125,7 @@ class App extends Component<AppInterface, AppState> {
             <select onChange={this.handleChange}>
               <option value="">AMPHTML</option>
               <option value="AMP4ADS">AMP4ADS</option>
-              <option value="AMPEMAIL">AMPEMAIL</option>
+              <option value="AMP4EMAIL">AMP4EMAIL</option>
             </select>
             
             <span className="header-right">
@@ -146,7 +153,6 @@ class App extends Component<AppInterface, AppState> {
       return this.setState({loggedIn: false});
     });
     this.props.app.getEditor().getCodemirror().on('change', (e) => {
-      console.log(this.state.format);
       let result = amp.validator.validateString(e.getValue(), this.state.format /* pass in amp format */);
       if(result.status == "PASS") {
         this.setState({valid:true});

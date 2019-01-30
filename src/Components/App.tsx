@@ -67,6 +67,8 @@ class App extends Component<AppInterface, AppState> {
               this.setState({loggedIn: false});
             });
           }}
+          auth={this.state.loggedIn}
+          hide={false}
         />
       );
     } else {
@@ -85,6 +87,8 @@ class App extends Component<AppInterface, AppState> {
               return this.setState({loggedIn: false});
             });
           }}
+          auth={this.state.loggedIn}
+          hide={false}
         />
       );
     }
@@ -99,6 +103,8 @@ class App extends Component<AppInterface, AppState> {
               onClick={() => {
                 this.props.app.reset();
               }}
+              auth={this.state.loggedIn}
+              hide={false}
             />
             <Button
               title="Save bin"
@@ -106,6 +112,8 @@ class App extends Component<AppInterface, AppState> {
               onClick={() => {
                 this.props.app.save();
               }}
+              auth={this.state.loggedIn}
+              hide={true}
             />
             <Button
               title="Share bin"
@@ -113,6 +121,8 @@ class App extends Component<AppInterface, AppState> {
               onClick={() => {
                 this.props.app.copyStaticUrl();
               }}
+              auth={this.state.loggedIn}
+              hide={true}
             />
             {inOut}
             <Button
@@ -121,6 +131,8 @@ class App extends Component<AppInterface, AppState> {
               onClick={() => {
                 console.log("clicked");
               }}
+              auth={this.state.loggedIn}
+              hide={false}
             />
             <select onChange={this.handleChange}>
               <option value="">AMPHTML</option>

@@ -4,6 +4,8 @@ export interface ButtonIcon {
   name: string;
   onClick: () => void;
   title: string;
+  auth: boolean;
+  hide: boolean;
 }
 
 export class Button extends Component<ButtonIcon> {

@@ -29,6 +29,8 @@
     "verbose": "webpack --mode development --env development --progress --color --watch --display-error-details --verbose --display-modules",
     "development": "webpack --mode development --env development --verbose --display-modules",
     "production": "webpack --mode production --env production; rollup -c",
-    "compiler": "rollup -c"
+    "compiler": "rollup -c",
+    "static": "firebase deploy --only hosting:static",
+    "app": "firebase deploy --only hosting:app"
   }
 }

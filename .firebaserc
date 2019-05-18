@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "ampbin-fe479"
+  },
+  "targets": {
+    "ampbin-fe479": {
+      "hosting": {
+        "static": [
+          "ampbin-static"
+        ],
+        "app": [
+          "ampbin-fe479"
+        ]
+      }
+    }
   }
 }

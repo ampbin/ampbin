@@ -30,7 +30,7 @@
     "development": "webpack --mode development --env development --verbose --display-modules",
     "production": "webpack --mode production --env production; rollup -c",
     "compiler": "rollup -c",
-    "static": "firebase deploy --only hosting:static",
-    "app": "firebase deploy --only hosting:app"
+    "deploy:static": "firebase deploy --only hosting:static",
+    "deploy:app": "firebase deploy --only hosting:app"
   }
 }

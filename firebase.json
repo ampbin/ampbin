@@ -12,6 +12,10 @@
     {
       "target": "static",
       "public": "static",
+      "rewrites": [ {
+        "source": "**",
+        "function": "app"
+      } ],
       "ignore": [
         "firebase.json",
         "**/.*",

@@ -90,6 +90,7 @@ export class Ampbin {
   copyStaticUrl() {
     const url = 'https://static.ampb.in/' + window.location.hash.replace('#', '') + '.html';
     this.copyToClipboard(url);
+    console.log(url);
     toastr.info(url, 'Copied!');
   }
 

@@ -1,5 +1,6 @@
 // Ampbin.ts
 import { EditorInterface, DatabaseInterface, AuthInterface } from '../Interfaces';
+import * as toastr from "toastr";
 
 export class Ampbin {
 
@@ -55,6 +56,7 @@ export class Ampbin {
    */
   reset() {
     this.editor.reset();
+    toastr.info('Reset!');
   }
 
   /**
@@ -69,6 +71,7 @@ export class Ampbin {
     const docref = this.database.create('bins', document);
     docref.then((e) => {
       window.location.hash = '#' + e;
+      toastr.success(e, 'Saved!');
     });
   }
   
@@ -85,7 +88,10 @@ export class Ampbin {
   }
 
   copyStaticUrl() {
-    this.copyToClipboard('https://static.ampb.in/' + window.location.hash.replace("#", "") + ".html");
+    const url = 'https://static.ampb.in/' + window.location.hash.replace('#', '') + '.html';
+    this.copyToClipboard(url);
+    console.log(url);
+    toastr.info(url, 'Copied!');
   }
 
   copyToClipboard(input: string) {

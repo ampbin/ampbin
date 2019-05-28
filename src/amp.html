@@ -1,34 +1,43 @@
 <!doctype html>
-<html ⚡>
-<head>
-  <meta charset="utf-8">
-  <title>AMPb.in Example</title>
-  <link rel="canonical" href="self.html" />
-  <meta name="viewport" content="width=device-width,minimum-scale=1">
-  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <style amp-custom>
+<html ⚡ lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="AMPb.in online editor and sharing.">
+    <link rel="preload" as="script" href="https://cdn.ampproject.org/v0.js">
+    <link rel="preload" href="https://cdn.bulldog.dev/files/u/hero-image.jpg" as="image">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <!-- Import other AMP Extensions here -->
+    <style amp-custom>
     body {
-      font-family:Arial, Helvetica, sans-serif;
+      font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
     }
-    h1, p {
-      margin: 1rem;
+    .container {
+      width:90%;
+      margin:0 auto;
     }
-    h1 {
-      font-weight:normal;
-    }
-    p {
-      color:#424242;
-    }
-    a {
-      color:#FF69B4;
-      background:#424242;
-      padding:5px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Share your AMPb.in with anyone!</h1>
-  <p>Quickly create, validate, and share your AMP HTML with this easy to use <a href="https://ampb.in/">AMP HTML Editor</a>.</p>
-</body>
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <link rel="canonical" href=".">
+    <title>AMPb.in Example</title>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Hello World</h1>
+    </div>
+    <amp-img src="https://cdn.bulldog.dev/files/u/hero-image.jpg"
+             width="1280"
+             height="960"
+             layout="responsive"
+             alt="Photo by Rasmus Landgreen on Unsplash">
+    </amp-img>
+    <div class="container">
+        <p>
+          Photo by
+          <a href="https://unsplash.com/@rasmuslandgreen">Rasmus Landgreen</a>
+          on Unsplash.
+        </p>
+    </div>
+  </body>
 </html>

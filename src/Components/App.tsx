@@ -26,7 +26,7 @@ class App extends Component<AppInterface, AppState> {
   constructor() {
     super();
 
-    this.setState({ 
+    this.setState({
       loggedIn: false,
       valid: true,
       format: '',
@@ -116,7 +116,7 @@ class App extends Component<AppInterface, AppState> {
               hide={true}
             />
             <Button
-              title="Share bin"
+              title="Copy bin URL to clipboard"
               name="fa-share-alt-square"
               onClick={() => {
                 this.props.app.copyStaticUrl();
@@ -139,7 +139,7 @@ class App extends Component<AppInterface, AppState> {
               <option value="AMP4ADS">AMP4ADS</option>
               <option value="AMP4EMAIL">AMP4EMAIL</option>
             </select>
-            
+
             <span className="header-right">
               <div className="input-box">
                 <span class="unit">Viewport Size</span>

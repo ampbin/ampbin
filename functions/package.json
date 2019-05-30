@@ -14,9 +14,11 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@types/serve-favicon": "^2.2.30",
     "express": "^4.17.0",
     "firebase-admin": "~7.0.0",
-    "firebase-functions": "^2.3.0"
+    "firebase-functions": "^2.3.0",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "tslint": "^5.12.0",

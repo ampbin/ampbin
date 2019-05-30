@@ -1,6 +1,8 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
-import *  as express from 'express';
+import * as express from 'express';
+import * as favicon from 'serve-favicon';
+import * as path from 'path';
 
 admin.initializeApp(functions.config().firebase);
 const db = admin.firestore();
@@ -33,5 +35,7 @@ app.get('/:id', (req, res) => {
     })
     ;
   });
+
+app.use(favicon(path.join(__dirname, 'favicon.ico')))
 
 exports.app = functions.https.onRequest(app);

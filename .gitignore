@@ -3,3 +3,4 @@
 /.firebase
 firebase-debug.log
 yarn-error.log
+*.lock
